@@ -16,6 +16,10 @@ You can find syllabi and student evaluations (including comments) here:
   <h3 class="course-title">Alternative Investments</h3>
   <div class="course-meta"><strong>Undergraduate</strong> · Fall 2023 – Present</div>
 
+  <div class="course-links">
+      <a href="/practice/fin4201/">Practice exams</a>
+    </div>
+
   <details class="course-details" open>
     <summary>Course Description</summary>
     <p>This class covers the investment landscape that confronts large institutional investors, key alternative asset classes and fund structures (such as hedge funds, private equity, and real and digital assets), and major players in the alternative space. The course centers on crucial concepts such as alternative risk premia, diversification, and illiquidity. The ultimate objective is to gain insight into how alternative assets operate, the various asset classes available to investors, how to conduct due diligence and monitor investment managers, and how to incorporate alternative assets into conventional investment portfolios. The course simulates the role of a limited partner (such as a pension fund or university endowment) with scarce resources to allocate to alternative assets.</p>
