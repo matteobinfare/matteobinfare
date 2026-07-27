@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FINANC 4201 — Practice Exams</title>
+<meta name="description" content="Practice exams for FINANC 4201 Alternative Investments: Quantitative Methods and Performance Evaluation.">
+<style>
+  :root{
+    --ink:#12212E; --ink70:#41525F; --ink40:#8496A2; --rule:#D8DFE4; --panel:#F2F5F7;
+    --gold:#B8901F; --goldSoft:#FBF3DC; --teal:#15645F; --tealSoft:#E6F1EF;
+    --rust:#9E3626; --rustSoft:#FAEAE7;
+    --serif:Georgia,"Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:#fff;color:var(--ink);font:16px/1.55 var(--sans)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+  a{color:var(--ink)}
+
+  header.top{border-bottom:1px solid var(--rule);position:sticky;top:0;background:#fff;z-index:20}
+  .topin{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
+  .mark{font:20px/1 var(--serif);letter-spacing:-.01em;display:flex;align-items:baseline;gap:12px}
+  .mark i{display:inline-block;width:28px;height:1px;background:var(--gold);font-style:normal}
+  .mark span{font:11px/1 var(--sans);letter-spacing:.12em;color:var(--ink40)}
+  nav{display:flex;gap:2px}
+  nav button{font:14px var(--sans);background:none;border:0;border-bottom:2px solid transparent;color:var(--ink40);padding:6px 10px;cursor:pointer}
+  nav button[aria-current="true"]{color:var(--ink);border-bottom-color:var(--gold)}
+
+  main{padding:44px 0 80px}
+  h1{font:400 38px/1.1 var(--serif);margin:12px 0 0}
+  h2{font:400 25px/1.2 var(--serif);margin:0 0 6px}
+  h3{font:400 17px/1.3 var(--serif);margin:28px 0 8px}
+  .eyebrow{font:11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+  .lede{color:var(--ink70);font-size:15px;max-width:62ch;margin:14px 0 0}
+  .muted{color:var(--ink40);font-size:13px}
+
+  .grid2{display:grid;gap:34px;grid-template-columns:1fr}
+  @media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+  .lbl{font:11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink40);margin:0 0 8px}
+  .stack{display:flex;flex-direction:column;gap:6px}
+  .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+
+  .opt{font:14px var(--sans);text-align:left;background:#fff;border:1px solid var(--rule);color:var(--ink70);
+       padding:7px 11px;border-radius:2px;cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:center}
+  .opt:hover{border-color:var(--ink40)}
+  .opt[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+  .opt.g[aria-pressed="true"]{background:var(--goldSoft);border-color:var(--gold);color:var(--ink)}
+  .opt em{font-style:normal;color:var(--ink40);font-size:12px;flex:none}
+  .opt[aria-pressed="true"] em{color:#cfd8dd}
+  .opt.g[aria-pressed="true"] em{color:var(--ink40)}
+  .check{width:15px;height:15px;border:1px solid var(--rule);flex:none;display:grid;place-items:center;font-size:10px;color:#fff;background:#fff}
+  .opt[aria-pressed="true"] .check{background:var(--ink);border-color:#fff;color:#fff}
+
+  button.btn{font:14px var(--sans);background:var(--ink);color:#fff;border:1px solid var(--ink);padding:10px 18px;border-radius:2px;cursor:pointer}
+  button.btn.ghost{background:#fff;color:var(--ink);border-color:var(--rule)}
+  button.btn.sm{font-size:12px;padding:5px 11px}
+  button.btn:disabled{opacity:.4;cursor:not-allowed}
+  button.link{background:none;border:0;color:var(--ink40);font:12px var(--sans);text-decoration:underline;cursor:pointer;padding:0}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+  input.num,input.txt,select,textarea{font:14px var(--sans);color:var(--ink);border:1px solid var(--rule);border-radius:2px;padding:7px 9px;background:#fff}
+  input.num{width:132px;font-variant-numeric:tabular-nums}
+  textarea{width:100%;resize:vertical;line-height:1.5}
+  select{max-width:100%}
+
+  .chip{display:inline-block;font:11px/1.6 var(--sans);letter-spacing:.02em;padding:2px 7px;border-radius:2px;
+        background:var(--panel);color:var(--ink70);border:1px solid var(--rule)}
+  .chip.g{background:var(--goldSoft);color:#7A5D0B;border-color:#E8D9A8}
+  .chip.t{background:var(--tealSoft);color:var(--teal);border-color:#BFDCD7}
+  .chip.r{background:var(--rustSoft);color:var(--rust);border-color:#EFCFC8}
+
+  .note{padding:11px 13px;border-radius:2px;font-size:14px;margin:0 0 26px}
+  .note.g{background:var(--goldSoft);color:#7A5D0B}
+  .note.r{background:var(--rustSoft);color:var(--rust)}
+
+  table.data{border-collapse:collapse;font-size:14px;margin:16px 0}
+  table.data th{font:11px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink40);
+                text-align:left;padding:8px 16px 8px 0;border-bottom:1px solid var(--ink);white-space:nowrap}
+  table.data td{padding:6px 16px 6px 0;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
+  .scroll{overflow-x:auto}
+
+  /* exam */
+  .exhead{border-bottom:2px solid var(--ink);padding-bottom:20px;margin-bottom:34px}
+  .exhead .top2{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start}
+  .clock{border:1px solid var(--rule);border-radius:2px;padding:6px 12px;text-align:center}
+  .clock.warn{border-color:var(--rust)}
+  .clock b{display:block;font:20px/1.2 var(--mono)}
+  .clock span{font-size:11px;color:var(--ink40)}
+
+  .q{position:relative;padding:0 0 34px 52px;border-bottom:1px solid var(--rule);margin-bottom:34px}
+  .q .qn{position:absolute;left:0;top:-4px;font:30px/1 var(--serif);color:var(--rule);user-select:none}
+  .q .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:12px}
+  .q .prompt{margin:0;font-size:16px}
+  .q ul.bul{margin:12px 0 0;padding:0;list-style:none}
+  .q ul.bul li{font-size:14px;color:var(--ink70);padding-left:18px;position:relative;margin-bottom:4px}
+  .q ul.bul li:before{content:"—";position:absolute;left:0;color:var(--gold)}
+
+  .fields{margin-top:20px;display:flex;flex-direction:column;gap:14px}
+  .field label{display:block;font-size:14px;color:var(--ink70);margin-bottom:5px}
+  .fline{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .fline .unit{font-size:12px;color:var(--ink40)}
+  .st{font-size:12px}
+  .st.ok{color:var(--teal)} .st.no{color:var(--rust)} .st.na{color:var(--ink40)}
+  input.num.ok{border-color:var(--teal)} input.num.no{border-color:var(--rust)}
+
+  .choices{margin-top:20px;display:flex;flex-direction:column;gap:8px}
+  .ch{display:flex;gap:12px;align-items:flex-start;text-align:left;font:14px/1.5 var(--sans);color:var(--ink);
+      background:#fff;border:1px solid var(--rule);border-radius:2px;padding:11px 13px;cursor:pointer;width:100%}
+  .ch:hover{border-color:var(--ink40)}
+  .ch b{font:400 14px var(--serif);color:var(--ink40);flex:none}
+  .ch[aria-pressed="true"]{border-color:var(--ink)}
+  .ch.key{border-color:var(--teal);background:var(--tealSoft)}
+  .ch.bad{border-color:var(--rust);background:var(--rustSoft)}
+
+  .sol{margin-top:18px;border-left:3px solid var(--gold);padding-left:18px}
+  .sol .hd{font:11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+  .sol p{margin:0 0 9px;font-size:14px;color:var(--ink70)}
+  .sol pre{margin:0 0 13px;background:var(--panel);color:var(--ink);border-radius:2px;padding:11px 13px;
+           font:12px/1.65 var(--mono);overflow-x:auto;white-space:pre}
+  .sol ol{margin:0;padding-left:20px}
+  .sol ol li{font-size:14px;color:var(--ink70);margin-bottom:8px}
+  .qfoot{margin-top:16px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+
+  .score{background:var(--panel);border-radius:2px;padding:18px;margin-top:22px}
+  .score .big{font:34px/1.1 var(--serif)}
+  .score .big i{font-style:normal;color:var(--ink40)}
+  .bars{display:flex;flex-direction:column;gap:5px;margin-top:14px}
+  .bar{display:flex;gap:10px;align-items:center;font-size:12px}
+  .bar .nm{width:min(260px,46vw);color:var(--ink70);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:none}
+  .bar .tr{height:8px;flex:1;max-width:200px;background:#fff}
+  .bar .fl{height:8px;display:block;background:var(--gold)}
+  .bar .fl.good{background:var(--teal)} .bar .fl.poor{background:var(--rust)}
+  .bar .vl{color:var(--ink40);flex:none}
+
+  .cards{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:22px 0 34px}
+  .card{background:var(--panel);border-radius:2px;padding:14px}
+  .card .k{font:11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--ink40)}
+  .card .v{font:30px/1.15 var(--serif);margin-top:6px}
+
+  .fml{margin-bottom:12px}
+  .fml .nm{display:flex;justify-content:space-between;gap:14px;align-items:baseline;font-size:14px}
+  .fml .nm em{font-style:normal;color:var(--ink40);font-size:12px;flex:none}
+  .fml pre{margin:5px 0 0;background:var(--panel);border-radius:2px;padding:9px 11px;font:12px/1.6 var(--mono);overflow-x:auto}
+  .sect{font:11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+        border-bottom:1px solid var(--rule);padding-bottom:6px;margin:30px 0 14px}
+
+  .empty{border:1px dashed var(--rule);border-radius:2px;padding:30px;text-align:center}
+  footer{border-top:1px solid var(--rule);padding:18px 0 60px;color:var(--ink40);font-size:12px;line-height:1.7}
+
+  @media(max-width:600px){
+    h1{font-size:29px} .q{padding-left:0} .q .qn{position:static;display:block;margin-bottom:4px}
+  }
+  @media print{
+    header.top,nav,.noprint,button{display:none!important}
+    body{font-size:11pt} .q{break-inside:avoid;border-bottom:1px solid #ccc}
+    main{padding:0} input.num{border:0;border-bottom:1px solid #999}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap topin">
+    <div class="mark">FINANC 4201 <i></i> <span>PRACTICE EXAMS</span></div>
+    <nav id="nav"></nav>
+  </div>
+</header>
+
+<main class="wrap" id="app"></main>
+
+<footer class="wrap">
+  <p id="foot"></p>
+</footer>
+
+<script src="bank.js"></script>
+<script>
+"use strict";
+/* ============================================================
+   FINANC 4201 practice site.
+   Reads a fixed question bank from bank.js. No network calls,
+   no dependencies, no accounts. Works offline and from file://
+   ============================================================ */
+var B = window.FIN4201_BANK;
+var TL = {}, TS = {};
+B.topics.forEach(function (t) { TL[t.id] = t.label; TS[t.id] = t.slides; });
+var KINDL = { quant: "Quantitative", mc: "Multiple choice", short: "Short answer" };
+var DEFTOL = { pct: 0.0005, num: 0.02, usd: 0.05, int: 0.0001 };
+
+/* ---------- helpers ---------- */
+function esc(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+function pct(x, d) { return (x * 100).toFixed(d == null ? 2 : d) + "%"; }
+function el(html) { var d = document.createElement("div"); d.innerHTML = html.trim(); return d.firstChild; }
+function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.random() * (i + 1) | 0; var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+/* progress lives in the student's own browser; degrades to memory if blocked */
+var store = (function () {
+  var KEY = "fin4201.progress.v1", mem = null, ok = true;
+  try { window.localStorage.getItem(KEY); } catch (e) { ok = false; }
+  function blank() { return { seen: {}, topic: {}, attempts: 0, right: 0, total: 0 }; }
+  return {
+    available: ok,
+    read: function () {
+      if (mem) return mem;
+      if (ok) { try { mem = JSON.parse(window.localStorage.getItem(KEY)) || blank(); } catch (e) { mem = blank(); } }
+      else mem = blank();
+      if (!mem.seen) mem = blank();
+      return mem;
+    },
+    write: function (v) { mem = v; if (!ok) return; try { window.localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) { } },
+    clear: function () { mem = blank(); if (ok) { try { window.localStorage.removeItem(KEY); } catch (e) { } } }
+  };
+})();
+
+/* ---------- state ---------- */
+var S = {
+  tab: "practice",
+  cfg: { topics: [], types: ["quant"], diff: "mixed", count: 10, solutions: "after", timed: false, minutes: 30, unseen: true, randomize: true },
+  exam: null, answers: {}, submitted: false, left: null, tick: null, note: null,
+  browse: { topic: "all", kind: "all", diff: "all", limit: 40 }
+};
+
+/* ============================================================
+   DRAWING A PAPER
+   Prefers the requested difficulty, then unseen questions, and
+   avoids two variants of the same template while it can.
+   ============================================================ */
+function drawExam(cfg) {
+  var prog = store.read();
+  function pool(kind) {
+    return B.questions.filter(function (q) {
+      if (q.kind !== kind) return false;
+      return cfg.topics.length === 0 || cfg.topics.indexOf(q.topic) >= 0;
+    });
+  }
+  function keyed(list) {
+    return list.map(function (q) {
+      var k = Math.random();
+      if (!(cfg.diff === "mixed" || q.diff === cfg.diff)) k += 10;
+      if (cfg.unseen && prog.seen[q.id]) k += 3;
+      return { q: q, k: k };
+    }).sort(function (a, b) { return a.k - b.k; });
+  }
+  function take(list, n, used) {
+    var out = [], rest = [];
+    keyed(list).forEach(function (x) {
+      if (out.length < n && !used[x.q.template]) { used[x.q.template] = 1; out.push(x.q); }
+      else rest.push(x.q);
+    });
+    for (var i = 0; out.length < n && i < rest.length; i++) out.push(rest[i]);
+    return out;
+  }
+
+  var mixed = cfg.types.indexOf("mixed") >= 0;
+  var kinds = mixed ? ["quant", "mc", "short"] : cfg.types.slice();
+  var pools = {}; kinds.forEach(function (k) { pools[k] = pool(k); });
+  kinds = kinds.filter(function (k) { return pools[k].length > 0; });
+  if (!kinds.length) return [];
+
+  var want = { quant: 0, mc: 0, short: 0 };
+  if (mixed) {
+    want.quant = Math.round(cfg.count * 0.6);
+    want.mc = Math.round(cfg.count * 0.25);
+    want.short = cfg.count - want.quant - want.mc;
+  } else {
+    kinds.forEach(function (k, i) { want[k] = Math.floor(cfg.count / kinds.length) + (i < cfg.count % kinds.length ? 1 : 0); });
+  }
+  ["quant", "mc", "short"].forEach(function (k) {
+    want[k] = kinds.indexOf(k) >= 0 ? Math.min(want[k], pools[k].length) : 0;
+  });
+  // redistribute any shortfall to kinds that still have questions left
+  var total = function () { return want.quant + want.mc + want.short; };
+  var guard = 0;
+  while (total() < cfg.count && guard++ < 900) {
+    var k = kinds.filter(function (x) { return want[x] < pools[x].length; })[0];
+    if (!k) break;
+    want[k]++;
+  }
+
+  var used = {}, out = [];
+  kinds.forEach(function (k) { out = out.concat(take(pools[k], want[k], used)); });
+  if (cfg.randomize) out = shuffle(out);
+
+  return out.slice(0, cfg.count).map(function (q, i) {
+    var c = { n: i + 1 };
+    for (var p in q) c[p] = q[p];
+    if (q.kind === "mc") {
+      var idx = shuffle(q.choices.map(function (_, j) { return j; }));
+      c.choices = idx.map(function (j) { return q.choices[j]; });
+      c.correct = idx.indexOf(q.correct);
+    }
+    return c;
+  });
+}
+
+/* ---------- grading ---------- */
+function parseNum(s) {
+  if (s == null) return null;
+  var t = String(s).replace(/[$,\s%]/g, "");
+  if (t === "" || t === "-" || t === ".") return null;
+  var v = Number(t);
+  return isFinite(v) ? v : null;
+}
+function gradePart(p, raw) {
+  if (p.unit === "text") return "self";
+  var v = parseNum(raw);
+  if (v === null) return "blank";
+  var tol = p.tol != null ? p.tol : (DEFTOL[p.unit] != null ? DEFTOL[p.unit] : 0.02);
+  var cands = p.unit === "pct" ? [v / 100, v] : [v];
+  for (var i = 0; i < cands.length; i++) if (Math.abs(cands[i] - p.answer) <= tol) return "right";
+  return "wrong";
+}
+function fmtAns(p) {
+  if (p.unit === "pct") return pct(p.answer, 2);
+  if (p.unit === "usd") return "$" + p.answer.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  if (p.unit === "int") return String(Math.round(p.answer));
+  return p.answer.toFixed(3);
+}
+function unitWord(u) {
+  return u === "pct" ? "percent" : u === "usd" ? "dollars" : u === "int" ? "whole number" : "ratio";
+}
+
+/* ============================================================
+   RENDERING
+   ============================================================ */
+function chips(q) {
+  var h = '<span class="chip">' + KINDL[q.kind] + '</span><span class="chip">' + esc(q.diff) + '</span>' +
+    '<span class="chip g" title="Traceable to the course slides">' + esc(q.src) + '</span>' +
+    '<span class="muted">' + esc(TL[q.topic]) + '</span>';
+  return h;
+}
+function tableHTML(t) {
+  if (!t) return "";
+  var h = '<div class="scroll"><table class="data"><thead><tr>';
+  t.headers.forEach(function (x) { h += "<th>" + esc(x) + "</th>"; });
+  h += "</tr></thead><tbody>";
+  t.rows.forEach(function (r) {
+    h += "<tr>";
+    r.forEach(function (c) { h += "<td>" + esc(c) + "</td>"; });
+    h += "</tr>";
+  });
+  return h + "</tbody></table></div>";
+}
+function solHTML(q) {
+  var h = "";
+  if (q.kind === "quant") {
+    h = '<div class="hd">Solution</div>';
+    q.solution.forEach(function (l) {
+      if (typeof l === "string") h += "<p>" + esc(l) + "</p>";
+      else h += "<pre>" + esc(l.m) + "</pre>";
+    });
+    h += '<p class="muted">Method follows ' + esc(q.src) + ' in the instructor solutions.</p>';
+  } else if (q.kind === "mc") {
+    h = '<div class="hd" data-hd="1">Answer</div><p>' + esc(q.why) + "</p>";
+  } else {
+    h = '<div class="hd">Model answer — the points that earn credit</div><ol>';
+    q.model.forEach(function (m) { h += "<li>" + esc(m) + "</li>"; });
+    h += "</ol>";
+  }
+  return h;
+}
+function questionHTML(q, showSol) {
+  var A = S.answers[q.n] || {};
+  var h = '<article class="q" data-n="' + q.n + '"><div class="qn">' + (q.n < 10 ? "0" : "") + q.n + "</div>" +
+    '<div class="meta">' + chips(q) + "</div>" +
+    '<p class="prompt">' + esc(q.prompt) + "</p>";
+  if (q.bullets && q.bullets.length) {
+    h += '<ul class="bul">';
+    q.bullets.forEach(function (b) { h += "<li>" + esc(b) + "</li>"; });
+    h += "</ul>";
+  }
+  h += tableHTML(q.table);
+
+  if (q.kind === "quant") {
+    h += '<div class="fields">';
+    q.parts.forEach(function (p, i) {
+      h += '<div class="field"><label for="f' + q.n + "_" + i + '">' + esc(p.label) + "</label>";
+      if (p.unit === "text") {
+        h += '<textarea id="f' + q.n + "_" + i + '" rows="3" data-p="' + i + '" placeholder="Your answer">' +
+          esc((A.parts && A.parts[i]) || "") + "</textarea>";
+      } else {
+        h += '<div class="fline"><input class="num" id="f' + q.n + "_" + i + '" type="text" inputmode="decimal" data-p="' + i +
+          '" value="' + esc((A.parts && A.parts[i]) || "") +
+          '" placeholder="' + (p.unit === "pct" ? "e.g. 5.25" : p.unit === "usd" ? "e.g. 1250.00" : "e.g. 0.42") + '">' +
+          '<span class="unit">' + unitWord(p.unit) + '</span><span class="st" data-st="' + i + '"></span></div>';
+      }
+      h += "</div>";
+    });
+    h += "</div>";
+  } else if (q.kind === "mc") {
+    h += '<div class="choices">';
+    q.choices.forEach(function (c, i) {
+      h += '<button class="ch" type="button" data-ch="' + i + '" aria-pressed="' + (A.choice === i) + '"><b>' +
+        "abcd".charAt(i) + "</b><span>" + esc(c) + "</span></button>";
+    });
+    h += "</div>";
+  } else {
+    h += '<textarea rows="5" data-free="1" placeholder="Write your answer, then compare it against the model answer.">' +
+      esc(A.text || "") + "</textarea>";
+  }
+
+  h += '<div class="sol"' + (showSol ? "" : " hidden") + ">" + solHTML(q) + "</div>";
+  h += '<div class="qfoot noprint">' +
+    (showSol ? "" : '<button class="link" data-reveal="1">Show solution</button>') +
+    '<span class="muted">Objective: ' + esc(q.lo) + "</span></div></article>";
+  return h;
+}
+
+/* ---------- practice tab ---------- */
+function viewPractice() {
+  var c = S.cfg, prog = store.read();
+  var h = '<div class="eyebrow">Practice exam generator</div>' +
+    "<h1>Every question traces back<br>to something from the slides.</h1>" +
+    '<p class="lede">' + B.meta.total + " questions covering " + esc(B.meta.chapter) +
+    ". Solutions are the instructor's own, worked step by step. Nothing is sent anywhere — this page runs entirely in your browser.</p>";
+
+  if (prog.total > 0) {
+    h += '<div class="cards"><div class="card"><div class="k">Exams taken</div><div class="v">' + prog.attempts + "</div></div>" +
+      '<div class="card"><div class="k">Questions seen</div><div class="v">' + Object.keys(prog.seen).length + '<span class="muted" style="font:12px var(--sans)"> / ' + B.meta.total + "</span></div></div>" +
+      '<div class="card"><div class="k">Accuracy so far</div><div class="v">' + pct(prog.right / prog.total, 0) + "</div></div></div>";
+  }
+
+  h += '<div class="grid2"><div>';
+  h += '<p class="lbl">Topics — leave empty for the whole chapter</p><div class="stack">';
+  B.topics.forEach(function (t) {
+    var n = B.questions.filter(function (q) { return q.topic === t.id; }).length;
+    h += '<button class="opt g" data-topic="' + t.id + '" aria-pressed="' + (c.topics.indexOf(t.id) >= 0) + '">' +
+      "<span>" + esc(t.label) + "</span><em>" + n + " · slides " + esc(t.slides) + "</em></button>";
+  });
+  h += "</div></div><div>";
+
+  h += '<p class="lbl">Question type</p><div class="row">';
+  [["quant", "Quantitative"], ["mc", "Multiple choice"], ["short", "Short answer"], ["mixed", "Mixed exam"]].forEach(function (p) {
+    h += '<button class="opt" data-type="' + p[0] + '" aria-pressed="' + (c.types.indexOf(p[0]) >= 0) + '">' + p[1] + "</button>";
+  });
+  h += "</div>";
+
+  h += '<p class="lbl" style="margin-top:26px">Difficulty</p><div class="row">';
+  ["easy", "medium", "hard", "mixed"].forEach(function (d) {
+    h += '<button class="opt" data-diff="' + d + '" aria-pressed="' + (c.diff === d) + '">' + d + "</button>";
+  });
+  h += "</div>";
+
+  h += '<p class="lbl" style="margin-top:26px">Number of questions</p><div class="row">';
+  [5, 10, 20].forEach(function (n) {
+    h += '<button class="opt" data-count="' + n + '" aria-pressed="' + (c.count === n) + '">' + n + "</button>";
+  });
+  h += '<input class="txt" id="customCount" type="text" inputmode="numeric" style="width:88px" placeholder="custom" value="' +
+    ([5, 10, 20].indexOf(c.count) >= 0 ? "" : c.count) + '"></div>';
+
+  h += '<p class="lbl" style="margin-top:26px">Options</p><div class="stack">';
+  [["sol", "Show solutions immediately", c.solutions === "immediate"],
+  ["timed", "Timed exam mode", c.timed],
+  ["rand", "Randomize question order", c.randomize],
+  ["unseen", "Favour questions I haven't seen yet", c.unseen]].forEach(function (o) {
+    h += '<button class="opt" data-flag="' + o[0] + '" aria-pressed="' + o[2] + '">' +
+      '<span style="display:flex;gap:11px;align-items:center"><span class="check">' + (o[2] ? "✓" : "") + "</span>" + o[1] + "</span></button>";
+  });
+  h += "</div>";
+  if (c.timed) {
+    h += '<div class="row" style="margin-top:12px"><span style="font-size:14px;color:var(--ink70)">Time limit</span>' +
+      '<input class="txt" id="mins" type="text" inputmode="numeric" style="width:70px" value="' + c.minutes + '">' +
+      '<span style="font-size:14px;color:var(--ink70)">minutes</span></div>';
+  }
+  h += '<div style="margin-top:32px"><button class="btn" id="go">Generate practice exam</button></div>';
+  h += "</div></div>";
+
+  if (prog.attempts > 0) {
+    var ks = Object.keys(prog.topic);
+    if (ks.length) {
+      h += '<h3 style="margin-top:52px">Your accuracy by topic</h3><div class="bars">';
+      ks.forEach(function (t) {
+        var v = prog.topic[t], r = v.right / v.total;
+        h += '<div class="bar"><span class="nm">' + esc(TL[t]) + '</span><span class="tr"><span class="fl ' +
+          (r >= 0.7 ? "good" : r < 0.4 ? "poor" : "") + '" style="width:' + (r * 100).toFixed(0) + '%"></span></span>' +
+          '<span class="vl">' + v.right + "/" + v.total + "</span></div>";
+      });
+      h += "</div>";
+      h += '<p style="margin-top:18px"><button class="link" id="reset">Reset my progress</button>' +
+        (store.available ? "" : ' <span class="muted">(this browser is blocking storage, so progress will not persist)</span>') + "</p>";
+    }
+  }
+  return h;
+}
+
+/* ---------- exam tab ---------- */
+function viewExam() {
+  var c = S.cfg, imm = c.solutions === "immediate";
+  var h = '<div class="exhead"><div class="top2"><div>' +
+    '<div class="eyebrow">Practice exam</div>' +
+    "<h2>" + esc(B.meta.course) + " · " + esc(B.meta.chapter) + "</h2>" +
+    '<p class="muted">' + S.exam.length + " questions · " + esc(c.diff) + " difficulty · " +
+    (c.topics.length ? c.topics.length + " selected topic" + (c.topics.length > 1 ? "s" : "") : "full chapter") + "</p></div>" +
+    '<div class="row noprint">' +
+    (c.timed ? '<div class="clock" id="clock"><span>time left</span><b>--:--</b></div>' : "") +
+    '<button class="btn ghost sm" id="print">Print</button>' +
+    '<button class="btn ghost sm" id="exit">New exam</button></div></div>' +
+    '<div id="scorebox"></div></div><div id="qs">';
+  S.exam.forEach(function (q) { h += questionHTML(q, imm); });
+  h += "</div>";
+  h += '<div class="row noprint" style="padding-bottom:40px">' +
+    '<button class="btn" id="submit">Submit exam</button>' +
+    '<span class="muted">Blank answers are marked as missed.</span></div>';
+  return h;
+}
+
+function grade() {
+  var earned = 0, possible = 0, self = 0, byTopic = {};
+  var nodes = document.querySelectorAll("#qs .q");
+  S.exam.forEach(function (q, i) {
+    var node = nodes[i], e = 0, p = 0;
+    if (q.kind === "quant") {
+      q.parts.forEach(function (part, j) {
+        var inp = node.querySelector('[data-p="' + j + '"]');
+        var st = node.querySelector('[data-st="' + j + '"]');
+        var g = gradePart(part, inp ? inp.value : "");
+        if (g === "self") { self++; return; }
+        p++;
+        inp.classList.remove("ok", "no");
+        if (g === "right") { e++; inp.classList.add("ok"); st.className = "st ok"; st.textContent = "correct"; }
+        else if (g === "wrong") { inp.classList.add("no"); st.className = "st no"; st.textContent = "answer: " + fmtAns(part); }
+        else { st.className = "st na"; st.textContent = "answer: " + fmtAns(part); }
+        inp.setAttribute("readonly", "readonly");
+      });
+    } else if (q.kind === "mc") {
+      p = 1;
+      var chosen = (S.answers[q.n] && S.answers[q.n].choice != null) ? S.answers[q.n].choice : null;
+      if (chosen === q.correct) e = 1;
+      var btns = node.querySelectorAll(".ch");
+      for (var k = 0; k < btns.length; k++) {
+        btns[k].disabled = true;
+        if (k === q.correct) btns[k].classList.add("key");
+        else if (k === chosen) btns[k].classList.add("bad");
+      }
+      var hd = node.querySelector("[data-hd]");
+      if (hd) hd.textContent = chosen == null ? "Answer" : (e ? "Correct" : "Not quite");
+    } else { self++; }
+    earned += e; possible += p;
+    if (p > 0) {
+      if (!byTopic[q.topic]) byTopic[q.topic] = { right: 0, total: 0 };
+      byTopic[q.topic].right += e; byTopic[q.topic].total += p;
+    }
+    var sol = node.querySelector(".sol");
+    if (sol) sol.hidden = false;
+    var rv = node.querySelector("[data-reveal]");
+    if (rv) rv.remove();
+  });
+  return { earned: earned, possible: possible, self: self, byTopic: byTopic };
+}
+
+function submitExam() {
+  if (S.submitted) return;
+  S.submitted = true;
+  if (S.tick) { clearInterval(S.tick); S.tick = null; }
+  applyGrade(true);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+/* Marks the paper. Progress is only recorded on the first submission, so
+   navigating away and back repaints the same result without inflating stats. */
+function applyGrade(record) {
+  var sc = grade();
+  if (record) {
+    var prog = store.read();
+    prog.attempts++;
+    S.exam.forEach(function (q) { prog.seen[q.id] = 1; });
+    prog.right += sc.earned; prog.total += sc.possible;
+    for (var t in sc.byTopic) {
+      if (!prog.topic[t]) prog.topic[t] = { right: 0, total: 0 };
+      prog.topic[t].right += sc.byTopic[t].right;
+      prog.topic[t].total += sc.byTopic[t].total;
+    }
+    store.write(prog);
+  }
+  var h = '<div class="score"><div class="row" style="gap:28px;align-items:baseline">' +
+    '<div><div class="k lbl" style="margin:0 0 4px">Auto-graded score</div>' +
+    '<div class="big">' + sc.earned + "<i> / " + sc.possible + "</i> " +
+    '<span style="font:400 16px var(--sans);color:var(--ink70)">' + (sc.possible ? pct(sc.earned / sc.possible, 0) : "—") + "</span></div></div>" +
+    (sc.self ? '<div style="font-size:14px;color:var(--ink70)">' + sc.self + " written response" + (sc.self > 1 ? "s" : "") +
+      " to mark against the model answers below.</div>" : "") + "</div>";
+  var ks = Object.keys(sc.byTopic);
+  if (ks.length > 1) {
+    h += '<div class="bars">';
+    ks.forEach(function (t) {
+      var v = sc.byTopic[t], r = v.right / v.total;
+      h += '<div class="bar"><span class="nm">' + esc(TL[t]) + '</span><span class="tr"><span class="fl ' +
+        (r >= 0.7 ? "good" : r < 0.4 ? "poor" : "") + '" style="width:' + (r * 100).toFixed(0) + '%"></span></span>' +
+        '<span class="vl">' + v.right + "/" + v.total + "</span></div>";
+    });
+    h += "</div>";
+  }
+  h += "</div>";
+  document.getElementById("scorebox").innerHTML = h;
+  var sb = document.getElementById("submit");
+  if (sb) { sb.textContent = "Generate another exam"; sb.id = "exit2"; }
+}
+
+/* ---------- browse tab ---------- */
+function viewBrowse() {
+  var b = S.browse;
+  var list = B.questions.filter(function (q) {
+    return (b.topic === "all" || q.topic === b.topic) && (b.kind === "all" || q.kind === b.kind) && (b.diff === "all" || q.diff === b.diff);
+  });
+  var h = "<h2>Browse the bank</h2>" +
+    '<p class="lede">All ' + B.meta.total + " questions with their solutions, for revision or spot-checking. " +
+    B.meta.quant + " quantitative, " + B.meta.mc + " multiple choice, " + B.meta.short + " short answer.</p>";
+  h += '<div class="row" style="margin:26px 0">' +
+    '<select id="bTopic"><option value="all">All topics</option>';
+  B.topics.forEach(function (t) { h += '<option value="' + t.id + '"' + (b.topic === t.id ? " selected" : "") + ">" + esc(t.label) + "</option>"; });
+  h += "</select>" +
+    '<select id="bKind"><option value="all">All types</option>' +
+    [["quant", "Quantitative"], ["mc", "Multiple choice"], ["short", "Short answer"]].map(function (k) {
+      return '<option value="' + k[0] + '"' + (b.kind === k[0] ? " selected" : "") + ">" + k[1] + "</option>";
+    }).join("") + "</select>" +
+    '<select id="bDiff"><option value="all">All difficulties</option>' +
+    ["easy", "medium", "hard"].map(function (d) {
+      return '<option value="' + d + '"' + (b.diff === d ? " selected" : "") + ">" + d.charAt(0).toUpperCase() + d.slice(1) + "</option>";
+    }).join("") + "</select>" +
+    '<span class="muted">' + list.length + " question" + (list.length === 1 ? "" : "s") + "</span></div>";
+
+  var show = list.slice(0, b.limit);
+  show.forEach(function (q) {
+    h += '<article class="q"><div class="meta">' + chips(q) + "</div>" +
+      '<p class="prompt">' + esc(q.prompt) + "</p>";
+    if (q.bullets && q.bullets.length) {
+      h += '<ul class="bul">';
+      q.bullets.forEach(function (x) { h += "<li>" + esc(x) + "</li>"; });
+      h += "</ul>";
+    }
+    h += tableHTML(q.table);
+    if (q.kind === "mc") {
+      h += '<div class="choices">';
+      q.choices.forEach(function (ch, j) {
+        h += '<div class="ch' + (j === q.correct ? " key" : "") + '" style="cursor:default"><b>' + "abcd".charAt(j) + "</b><span>" + esc(ch) + "</span></div>";
+      });
+      h += "</div>";
+    }
+    h += '<div class="sol">' + solHTML(q) + "</div></article>";
+  });
+  if (list.length > show.length) {
+    h += '<div class="row"><button class="btn ghost" id="more">Show ' + Math.min(40, list.length - show.length) + " more</button>" +
+      '<span class="muted">' + show.length + " of " + list.length + " shown</span></div>";
+  }
+  if (!list.length) h += '<div class="empty"><p>Nothing matches those filters.</p></div>';
+  return h;
+}
+
+/* ---------- formulas tab ---------- */
+function viewFormulas() {
+  var h = "<h2>Formula sheet</h2>" +
+    '<p class="lede">Taken from the chapter slides, in the notation used in the solutions.</p>';
+  B.topics.forEach(function (t) {
+    var fs = B.formulas.filter(function (x) { return x.t === t.id; });
+    if (!fs.length) return;
+    h += '<div class="sect">' + esc(t.label) + "</div>";
+    fs.forEach(function (x) {
+      h += '<div class="fml"><div class="nm"><span>' + esc(x.n) + "</span><em>" + esc(x.s) + "</em></div><pre>" + esc(x.m) + "</pre></div>";
+    });
+  });
+  return h;
+}
+
+/* ============================================================
+   WIRING
+   ============================================================ */
+function renderNav() {
+  var tabs = [["practice", S.exam ? "Exam" : "Practice"], ["browse", "Browse"], ["formulas", "Formulas"]];
+  document.getElementById("nav").innerHTML = tabs.map(function (t) {
+    return '<button data-tab="' + t[0] + '" aria-current="' + (S.tab === t[0]) + '">' + t[1] + "</button>";
+  }).join("");
+}
+function render() {
+  renderNav();
+  var app = document.getElementById("app");
+  var body = S.tab === "browse" ? viewBrowse() : S.tab === "formulas" ? viewFormulas() : (S.exam ? viewExam() : viewPractice());
+  app.innerHTML = (S.note ? '<div class="note g">' + esc(S.note) + "</div>" : "") + body;
+  S.note = null;
+  if (S.tab === "practice" && S.exam) {
+    if (S.submitted) applyGrade(false);
+    else if (S.cfg.timed) startClock();
+  }
+}
+function startClock() {
+  if (S.left == null) S.left = S.cfg.minutes * 60;
+  var box = document.getElementById("clock");
+  if (!box) return;
+  var b = box.querySelector("b");
+  function paint() {
+    var m = Math.floor(S.left / 60), s = S.left % 60;
+    b.textContent = (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+    box.className = "clock" + (S.left < 60 ? " warn" : "");
+  }
+  paint();
+  if (S.tick) clearInterval(S.tick);
+  S.tick = setInterval(function () {
+    S.left--; paint();
+    if (S.left <= 0) { clearInterval(S.tick); S.tick = null; submitExam(); }
+  }, 1000);
+}
+
+document.addEventListener("click", function (ev) {
+  var t = ev.target.closest ? ev.target.closest("button,[data-ch]") : null;
+  if (!t) return;
+  var c = S.cfg, d = t.dataset || {};
+
+  if (d.tab) { S.tab = d.tab; render(); return; }
+
+  if (d.topic) {
+    var i = c.topics.indexOf(d.topic);
+    if (i >= 0) c.topics.splice(i, 1); else c.topics.push(d.topic);
+    render(); return;
+  }
+  if (d.type) {
+    if (d.type === "mixed") c.types = ["mixed"];
+    else {
+      c.types = c.types.filter(function (x) { return x !== "mixed"; });
+      var j = c.types.indexOf(d.type);
+      if (j >= 0) c.types.splice(j, 1); else c.types.push(d.type);
+      if (!c.types.length) c.types = ["quant"];
+    }
+    render(); return;
+  }
+  if (d.diff) { c.diff = d.diff; render(); return; }
+  if (d.count) { c.count = +d.count; render(); return; }
+  if (d.flag) {
+    if (d.flag === "sol") c.solutions = c.solutions === "immediate" ? "after" : "immediate";
+    if (d.flag === "timed") c.timed = !c.timed;
+    if (d.flag === "rand") c.randomize = !c.randomize;
+    if (d.flag === "unseen") c.unseen = !c.unseen;
+    render(); return;
+  }
+  if (t.id === "reset") { store.clear(); S.note = "Progress cleared."; render(); return; }
+
+  if (t.id === "go") {
+    var cc = document.getElementById("customCount");
+    if (cc && cc.value.trim()) {
+      var v = parseInt(cc.value, 10);
+      if (isFinite(v)) c.count = Math.max(1, Math.min(60, v));
+    }
+    var mn = document.getElementById("mins");
+    if (mn && mn.value.trim()) {
+      var mv = parseInt(mn.value, 10);
+      if (isFinite(mv)) c.minutes = Math.max(1, Math.min(240, mv));
+    }
+    var ex = drawExam(c);
+    if (!ex.length) {
+      S.note = "No questions match that combination. " +
+        (c.types.indexOf("quant") >= 0 ? "Foundations of benchmarking is assessed conceptually, so try multiple choice or short answer." : "Try widening the topic selection.");
+      render(); return;
+    }
+    if (ex.length < c.count) {
+      S.note = "Only " + ex.length + " question" + (ex.length === 1 ? "" : "s") + " match that combination, so this paper is shorter than you asked for.";
+    }
+    S.exam = ex; S.answers = {}; S.submitted = false; S.left = null; S.tab = "practice";
+    render(); window.scrollTo({ top: 0 });
+    return;
+  }
+
+  if (t.id === "exit" || t.id === "exit2") {
+    if (S.tick) { clearInterval(S.tick); S.tick = null; }
+    S.exam = null; S.submitted = false; S.left = null;
+    render(); window.scrollTo({ top: 0 });
+    return;
+  }
+  if (t.id === "print") { window.print(); return; }
+  if (t.id === "submit") { submitExam(); return; }
+  if (t.id === "more") { S.browse.limit += 40; render(); return; }
+
+  if (d.reveal) {
+    var art = t.closest("article.q");
+    var sol = art.querySelector(".sol");
+    sol.hidden = !sol.hidden;
+    t.textContent = sol.hidden ? "Show solution" : "Hide solution";
+    return;
+  }
+  if (d.ch != null && !S.submitted) {
+    var art2 = t.closest("article.q");
+    var n = +art2.dataset.n;
+    if (!S.answers[n]) S.answers[n] = {};
+    S.answers[n].choice = +d.ch;
+    var all = art2.querySelectorAll(".ch");
+    for (var k = 0; k < all.length; k++) all[k].setAttribute("aria-pressed", String(k === +d.ch));
+    return;
+  }
+});
+
+document.addEventListener("input", function (ev) {
+  var t = ev.target, art = t.closest ? t.closest("article.q") : null;
+  if (!art || !art.dataset.n) return;
+  var n = +art.dataset.n;
+  if (!S.answers[n]) S.answers[n] = {};
+  if (t.dataset.p != null) {
+    if (!S.answers[n].parts) S.answers[n].parts = {};
+    S.answers[n].parts[t.dataset.p] = t.value;
+  } else if (t.dataset.free) {
+    S.answers[n].text = t.value;
+  }
+});
+
+document.addEventListener("change", function (ev) {
+  var id = ev.target.id;
+  if (id === "bTopic") { S.browse.topic = ev.target.value; S.browse.limit = 40; render(); }
+  if (id === "bKind") { S.browse.kind = ev.target.value; S.browse.limit = 40; render(); }
+  if (id === "bDiff") { S.browse.diff = ev.target.value; S.browse.limit = 40; render(); }
+});
+
+document.getElementById("foot").innerHTML =
+  "Built from <em>" + esc(B.meta.chapter) + "</em> and the accompanying instructor solutions for " +
+  esc(B.meta.course) + " " + esc(B.meta.courseName) + " (" + esc(B.meta.instructor) + "). " +
+  B.meta.total + " questions, bank built " + esc(B.meta.built) + ". " +
+  "This page runs entirely in your browser: no accounts, no tracking, and nothing you type leaves your device. " +
+  "Your progress is stored locally and clearing your browser data will erase it.";
+
+render();
+</script>
+</body>
+</html>
