@@ -488,13 +488,36 @@
         let filteredQuestions = [];
 
         // Load questions data
+        console.log('Attempting to load bank.json...');
         fetch('bank.json')
-            .then(response => response.json())
+            .then(response => {
+                console.log('Response status:', response.status);
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                return response.json();
+            })
             .then(data => {
+                console.log('Successfully loaded questions:', data.metadata);
                 questionsData = data;
                 initializeUI();
             })
-            .catch(error => console.error('Error loading questions:', error));
+            .catch(error => {
+                console.error('ERROR loading bank.json:', error);
+                const container = document.getElementById('questions-container');
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <p style="color: red; font-weight: bold;">❌ Error Loading Questions</p>
+                        <p style="color: #333; margin: 10px 0;"><strong>${error.message}</strong></p>
+                        <p style="color: #666; font-size: 0.9em;">
+                            This error usually means <strong>bank.json</strong> is not found or not in the same folder as index.html on GitHub.
+                        </p>
+                        <p style="color: #666; font-size: 0.9em; margin-top: 15px;">
+                            <strong>Fix:</strong> Upload bank.json to the same GitHub Pages folder as index.html
+                        </p>
+                    </div>
+                `;
+            });
 
         function initializeUI() {
             populateChapterSelect();
