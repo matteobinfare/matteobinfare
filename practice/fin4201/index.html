@@ -81,6 +81,12 @@ fieldset.fs>legend{font:600 9.5px/1 var(--sans);letter-spacing:.14em;text-transf
 .trow .cd{font:600 11.5px/1.5 var(--mono);color:var(--label);flex:none;width:26px;margin-top:1px}
 .trow .nm{flex:1}
 .trow .ct{font:500 11.5px/1.6 var(--mono);color:var(--mute);flex:none}
+.chaphead{font:600 9.5px/1 var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--gold);
+  padding:12px 6px 6px;margin-top:2px;border-top:1px solid var(--soft)}
+.chaphead:first-child{border-top:0;margin-top:0;padding-top:2px}
+.chaptag{display:block;width:100%;font:600 9.5px/1 var(--sans);letter-spacing:.13em;text-transform:uppercase;
+  color:var(--gold);margin:10px 0 2px}
+.chaptag:first-child{margin-top:0}
 
 /* ---------- pills ---------- */
 .pills{display:flex;flex-wrap:wrap;gap:8px}
@@ -278,12 +284,12 @@ footer{border-top:1px solid var(--line);padding:20px 0 60px;color:var(--mute);fo
 
 <footer class="wrap"><p id="foot"></p></footer>
 
-<script src="bank.json"></script>
+<script src="bank.js"></script>
 <script>
 "use strict";
 /* ============================================================
    FINANC 4201 practice site.
-   Fixed question bank from bank.json. No network, no dependencies,
+   Fixed question bank from bank.js. No network, no dependencies,
    no accounts. Runs offline and from file://
    ============================================================ */
 var B = window.FIN4201_BANK;
@@ -563,14 +569,21 @@ function viewSetup() {
   h += '<div class="cols"><fieldset class="fs"><legend>Topics</legend>' +
     '<div class="selrow"><button data-all="1">Select all</button><i>·</i><button data-none="1">Select none</button></div>' +
     '<div class="tlist">';
-  B.topics.forEach(function (t) {
-    var ct = B.questions.filter(function (q) { return q.topic === t.id; }).length;
-    var on = c.topics.indexOf(t.id) >= 0;
-    h += '<button class="trow" data-topic="' + t.id + '" aria-pressed="' + on + '">' +
-      '<span class="box">' + (on ? "✓" : "") + "</span>" +
-      '<span class="cd">' + TCODE[t.id] + "</span>" +
-      '<span class="nm">' + esc(t.label) + "</span>" +
-      '<span class="ct">' + ct + "</span></button>";
+  (B.chapters || [{ id: null, label: null }]).forEach(function (ch) {
+    var chTopics = B.topics.filter(function (t) { return ch.id == null || t.chapter === ch.id; });
+    if (!chTopics.length) return;
+    if (ch.id != null) {
+      h += '<div class="chaphead">' + esc(ch.label) + "</div>";
+    }
+    chTopics.forEach(function (t) {
+      var ct = B.questions.filter(function (q) { return q.topic === t.id; }).length;
+      var on = c.topics.indexOf(t.id) >= 0;
+      h += '<button class="trow" data-topic="' + t.id + '" aria-pressed="' + on + '">' +
+        '<span class="box">' + (on ? "✓" : "") + "</span>" +
+        '<span class="cd">' + TCODE[t.id] + "</span>" +
+        '<span class="nm">' + esc(t.label) + "</span>" +
+        '<span class="ct">' + ct + "</span></button>";
+    });
   });
   h += "</div></fieldset>";
 
@@ -832,8 +845,13 @@ function viewBrowse() {
     '<input class="srch" id="bq" type="search" placeholder="Search the questions — try &quot;Sharpe&quot;, &quot;unsmooth&quot;, &quot;drawdown&quot;" value="' + esc(b.q) + '">' +
     '<div class="pills" style="margin-top:12px">' +
     '<button class="pill" data-btopic="all" aria-pressed="' + (b.topic === "all") + '">All topics</button>';
-  B.topics.forEach(function (t) {
-    h += '<button class="pill" data-btopic="' + t.id + '" aria-pressed="' + (b.topic === t.id) + '" title="' + esc(t.label) + '">' + TCODE[t.id] + "</button>";
+  (B.chapters || [{ id: null, label: null }]).forEach(function (ch) {
+    var chTopics = B.topics.filter(function (t) { return ch.id == null || t.chapter === ch.id; });
+    if (!chTopics.length) return;
+    if (ch.id != null) h += '<span class="chaptag">' + esc(ch.label) + "</span>";
+    chTopics.forEach(function (t) {
+      h += '<button class="pill" data-btopic="' + t.id + '" aria-pressed="' + (b.topic === t.id) + '" title="' + esc(t.label) + '">' + TCODE[t.id] + "</button>";
+    });
   });
   h += '</div><div class="pills" style="margin-top:9px">';
   [["all", "All types"], ["quant", "Quantitative"], ["mc", "Multiple choice"], ["short", "Short answer"]].forEach(function (k) {
