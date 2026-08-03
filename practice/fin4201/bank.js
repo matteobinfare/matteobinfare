@@ -4,9 +4,9 @@ window.FIN4201_BANK = {
     "courseName": "Alternative Investments",
     "chapter": "Quantitative Methods and Performance Evaluation + Hedge Funds",
     "instructor": "Matteo Binfare",
-    "total": 199,
-    "quant": 90,
-    "mc": 109,
+    "total": 300,
+    "quant": 149,
+    "mc": 151,
     "short": 0,
     "built": "8/3/2026"
   },
@@ -4221,6 +4221,2045 @@ window.FIN4201_BANK = {
       ],
       "correct": 0,
       "why": "A strategy can have high Sharpe ratio but be exposed to rare crash events (high kurtosis)."
+    },
+    {
+      "id": "q200",
+      "prompt": "An investor buys a bond at $80 and sells it at $92. What is the single-period return?",
+      "diff": "e",
+      "topic": "single_period_returns",
+      "lo": "Basic return formula: R = (V_T - V_0) / V_0",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.15,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "R = (92 - 80) / 80 = 0.1500 = 15.0%",
+        {
+          "m": "Basic return formula: R = (V_T - V_0) / V_0"
+        }
+      ]
+    },
+    {
+      "id": "q201",
+      "prompt": "A stock falls from $60 to $51. What is the return, expressed in basis points if relevant?",
+      "diff": "e",
+      "topic": "single_period_returns",
+      "lo": "R = (V_T - V_0) / V_0; negative returns keep the minus sign",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": -0.15,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "R = (51 - 60) / 60 = -0.1500 = -15.0%. Losses take a negative sign.",
+        {
+          "m": "R = (V_T - V_0) / V_0; negative returns keep the minus sign"
+        }
+      ]
+    },
+    {
+      "id": "q202",
+      "prompt": "Why are very small returns (e.g., 0.35%) sometimes expressed in basis points?",
+      "diff": "e",
+      "topic": "single_period_returns",
+      "lo": "Basis points give a finer, unambiguous unit for very small return differences, common in fixed income and fee discussions.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "1 basis point (bp) = 0.01%, so 0.35% = 35 bps. This avoids ambiguity when returns are small and makes comparisons across funds easier.",
+        "1 basis point equals 1% exactly, so 0.35% would be written as 0.35 bps.",
+        "Basis points are used only for currency returns, not equity or fixed income returns.",
+        "Expressing returns in basis points changes their underlying value, making them easier to compare across time periods."
+      ],
+      "correct": 0,
+      "why": "Basis points give a finer, unambiguous unit for very small return differences, common in fixed income and fee discussions."
+    },
+    {
+      "id": "q203",
+      "prompt": "A stock is bought at $80/share, held one quarter, sold at $83/share, paying a $1.2/share dividend along the way. Compute the HPR, capital gain, and dividend yield.",
+      "diff": "m",
+      "topic": "holding_period_returns",
+      "lo": "HPR = [(V1 - V0) + D] / V0; decompose into capital gain and dividend yield",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "text"
+        }
+      ],
+      "solution": [
+        "HPR = [(83-80)+1.2]/80 = 5.25%. Capital gain = (83-80)/80 = 3.75%. Dividend yield = 1.2/80 = 1.50%",
+        {
+          "m": "HPR = [(V1 - V0) + D] / V0; decompose into capital gain and dividend yield"
+        }
+      ]
+    },
+    {
+      "id": "q204",
+      "prompt": "If dividends are reinvested during the holding period rather than paid out in cash, how does the HPR decomposition change?",
+      "diff": "m",
+      "topic": "holding_period_returns",
+      "lo": "Reinvested dividends are embedded in V1, so the capital-gain component must subtract D from V1 before comparing to V0 to avoid double-counting.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "R = [(V1 - D) - V0]/V0 + D/V0, where V1 already includes the value of reinvested dividends. The price-appreciation term must strip out the reinvested amount before computing capital gain.",
+        "R = (V1 - V0)/V0 + D/V0, treating reinvested dividends identically to cash dividends with no adjustment needed.",
+        "Reinvested dividends should be excluded entirely from the return calculation since they never left the fund.",
+        "R = (V1 + D - V0)/V0, adding the dividend a second time on top of the already-inflated ending value."
+      ],
+      "correct": 0,
+      "why": "Reinvested dividends are embedded in V1, so the capital-gain component must subtract D from V1 before comparing to V0 to avoid double-counting."
+    },
+    {
+      "id": "q205",
+      "prompt": "Portfolio: Asset 1 (25%, 8%), Asset 2 (35%, -3%), Asset 3 (15%, 12%), Asset 4 (25%, -2%). What is the portfolio return?",
+      "diff": "m",
+      "topic": "portfolio_returns",
+      "lo": "Portfolio return = sum of (weight_i × return_i)",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.0225,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "R_P = 0.25×0.08+0.35×-0.03+0.15×0.12+0.25×-0.02 = 2.25%",
+        {
+          "m": "Portfolio return = sum of (weight_i × return_i)"
+        }
+      ]
+    },
+    {
+      "id": "q206",
+      "prompt": "Do portfolio weights in the return formula need to be based on beginning-of-period or end-of-period values?",
+      "diff": "e",
+      "topic": "portfolio_returns",
+      "lo": "R_P = Σ(w_i × R_i) uses weights measured at the start of the period, before that period's returns are realized.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "Beginning-of-period weights. Using end-of-period weights would already embed the period's return, creating circularity.",
+        "End-of-period weights, since they reflect the portfolio's actual composition after returns are realized.",
+        "It doesn't matter which weights are used; beginning and end-of-period weights always produce the same portfolio return.",
+        "Average of beginning and ending weights, to smooth out the effect of the period's price changes."
+      ],
+      "correct": 0,
+      "why": "R_P = Σ(w_i × R_i) uses weights measured at the start of the period, before that period's returns are realized."
+    },
+    {
+      "id": "q207",
+      "prompt": "What is the maximum possible loss on a long stock position versus a short stock position?",
+      "diff": "m",
+      "topic": "short_positions",
+      "lo": "Long: max loss = -100%. Short: loss = (P_buy - P_sell)/P_sell, and P_buy has no upper bound.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "A long position's maximum loss is capped at 100% (the stock can only fall to zero). A short position's maximum loss is theoretically unlimited, since the stock price can rise indefinitely.",
+        "Both long and short positions have unlimited maximum loss potential, since prices can move in either direction indefinitely.",
+        "A long position's maximum loss is unlimited, while a short position's maximum loss is capped at 100%.",
+        "Both positions are capped at 100% maximum loss, since neither can lose more than the initial investment."
+      ],
+      "correct": 0,
+      "why": "Long: max loss = -100%. Short: loss = (P_buy - P_sell)/P_sell, and P_buy has no upper bound."
+    },
+    {
+      "id": "q208",
+      "prompt": "A portfolio holds 3 shares of Stock A at $40/share (long) and shorts 1 share of Stock B at $35/share. One month later, A is $44 and B is $33. Calculate the portfolio return.",
+      "diff": "h",
+      "topic": "short_positions",
+      "lo": "Compute dollar gain on long and short legs separately, divide by net equity invested",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.11800000000000001,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "Long gain = 3×(44-40) = $12. Short gain = 1×(35-33) = $2. Net equity = 3×40 - 1×35 = $85. Return = (12+2)/85 = 11.8%",
+        {
+          "m": "Compute dollar gain on long and short legs separately, divide by net equity invested"
+        }
+      ]
+    },
+    {
+      "id": "q209",
+      "prompt": "An investor finances an investment with 70% equity and the rest debt at 4% interest. The unlevered asset return is 8%. What is the leveraged return?",
+      "diff": "m",
+      "topic": "leverage",
+      "lo": "R_LEV = (R_CashBasis - i×L) / (1-L)",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.0971,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "L = 0.30. R_LEV = (8% - 4%×0.30) / 0.70 = 9.71%",
+        {
+          "m": "R_LEV = (R_CashBasis - i×L) / (1-L)"
+        }
+      ]
+    },
+    {
+      "id": "q210",
+      "prompt": "A trader buys 200 shares at $30 using 50% cash and 50% borrowed money at 3% annual interest. One month later the price is $31.5. Find the leveraged return.",
+      "diff": "h",
+      "topic": "leverage",
+      "lo": "Compute cash-basis return first, then apply leverage formula with monthly interest",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.0975,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "Cash basis = (31.5-30)/30 = 5.00%. Monthly interest = 3%/12 = 0.250%. R_LEV = (5.00% - 0.250%×0.5) / 0.5 = 9.75%",
+        {
+          "m": "Compute cash-basis return first, then apply leverage formula with monthly interest"
+        }
+      ]
+    },
+    {
+      "id": "q211",
+      "prompt": "If the unlevered return on an asset equals the interest rate on the borrowed money exactly, what happens to the leveraged return?",
+      "diff": "h",
+      "topic": "leverage",
+      "lo": "R_LEV = (R_CB - i×L)/(1-L). If R_CB = i, then R_LEV = (i - i×L)/(1-L) = i×(1-L)/(1-L) = i = R_CB",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "The leveraged return equals the unlevered return. Leverage only amplifies returns above or below the financing cost; when they're equal, there's no amplification effect (R_LEV = R_CashBasis).",
+        "The leveraged return becomes negative, since the cost of borrowing always exceeds any matching asset return.",
+        "The leveraged return exceeds the unlevered return, because leverage always adds a fixed premium regardless of the spread.",
+        "The leveraged return becomes undefined, since the formula requires a strictly positive spread between R_CB and i."
+      ],
+      "correct": 0,
+      "why": "R_LEV = (R_CB - i×L)/(1-L). If R_CB = i, then R_LEV = (i - i×L)/(1-L) = i×(1-L)/(1-L) = i = R_CB"
+    },
+    {
+      "id": "q212",
+      "prompt": "Compute the cumulative return for 5 periods with returns: 4%, -2%, 6%, 1%, -3%.",
+      "diff": "m",
+      "topic": "multi_period_returns",
+      "lo": "Chain linking: R = ∏(1+R_t) - 1",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.0584,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "R = (1+0.04)×(1-0.02)×(1+0.06)×(1+0.01)×(1-0.03) - 1 = 1.0584 - 1 = 5.84%",
+        {
+          "m": "Chain linking: R = ∏(1+R_t) - 1"
+        }
+      ]
+    },
+    {
+      "id": "q213",
+      "prompt": "Using the same 5-period return series (4%, -2%, 6%, 1%, -3%), compute the annualized geometric mean return.",
+      "diff": "m",
+      "topic": "multi_period_returns",
+      "lo": "Geometric mean = (∏(1+R_t))^(1/T) - 1",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.011399999999999999,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "R̄_G = [1.0584]^(1/5) - 1 = 1.14%",
+        {
+          "m": "Geometric mean = (∏(1+R_t))^(1/T) - 1"
+        }
+      ]
+    },
+    {
+      "id": "q214",
+      "prompt": "Returns over 5 years: 50%, -30%, 20%, -40%, 60%. Compute both arithmetic and geometric mean. Which better reflects actual wealth change?",
+      "diff": "h",
+      "topic": "multi_period_returns",
+      "lo": "Geometric mean accounts for compounding; arithmetic mean overstates true wealth growth when returns are volatile",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "text"
+        }
+      ],
+      "solution": [
+        "Arithmetic = (50+-30+20+-40+60)/5 = 12.0%. Geometric = [1.2096]^(1/5) - 1 = 3.88%. Geometric reflects compounding and volatility drag.",
+        {
+          "m": "Geometric mean accounts for compounding; arithmetic mean overstates true wealth growth when returns are volatile"
+        }
+      ]
+    },
+    {
+      "id": "q215",
+      "prompt": "Why can a cash-flow series with alternating signs (e.g., -, +, -, +) sometimes produce multiple IRRs?",
+      "diff": "m",
+      "topic": "irr_money_weighted_returns",
+      "lo": "A conventional cash flow pattern (single sign change, e.g., all outflows then all inflows) guarantees a unique IRR; multiple sign changes do not.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "Descartes' rule of signs implies the number of sign changes in the cash flow series bounds the number of possible real roots to the NPV=0 equation. Multiple sign changes (non-conventional cash flows) can create multiple valid IRRs, making the metric ambiguous.",
+        "Multiple IRRs only occur when management or performance fees are miscalculated in the cash flow series.",
+        "A cash flow series can never produce more than one IRR, regardless of how many times the signs change.",
+        "Alternating signs guarantee a unique IRR because each sign change cancels out the ambiguity from the previous one."
+      ],
+      "correct": 0,
+      "why": "A conventional cash flow pattern (single sign change, e.g., all outflows then all inflows) guarantees a unique IRR; multiple sign changes do not."
+    },
+    {
+      "id": "q216",
+      "prompt": "In the IRR formula, what does the exponent W_k represent for a mid-year cash flow?",
+      "diff": "e",
+      "topic": "irr_money_weighted_returns",
+      "lo": "IRR: Σ C_k / (1+R)^W_k = 0, where W_k scales the discounting exponent to the exact timing of each cash flow within the period.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "W_k is the fraction of the period elapsed from the start until cash flow k occurs. For example, a cash flow 9 months into a 12-month period has W_k = 9/12 = 0.75.",
+        "W_k represents the total number of cash flows in the series, used to normalize the discount rate.",
+        "W_k represents the dollar amount of the cash flow, scaled to a fraction of total contributed capital.",
+        "W_k is a fixed constant equal to 1 for all cash flows, regardless of timing within the period."
+      ],
+      "correct": 0,
+      "why": "IRR: Σ C_k / (1+R)^W_k = 0, where W_k scales the discounting exponent to the exact timing of each cash flow within the period."
+    },
+    {
+      "id": "q217",
+      "prompt": "A hedge fund manager receives a large capital inflow right before a strong quarter and a large redemption right before a weak quarter. How would TWR and IRR compare for this fund?",
+      "diff": "h",
+      "topic": "time_weighted_returns",
+      "lo": "TWR is cash-flow neutral (chain-links sub-period returns); IRR is sensitive to the size and timing of investor cash flows.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "TWR would show the same period returns regardless of flow timing, reflecting only the manager's true performance in each sub-period. IRR would be inflated because more capital was deployed during the strong quarter and less during the weak one, making the LP's dollar-weighted experience better than the TWR suggests.",
+        "TWR would be inflated by the well-timed inflow, while IRR would remain unaffected by cash flow timing.",
+        "Both TWR and IRR would show identical, inflated results because both are sensitive to cash flow timing.",
+        "TWR and IRR would both understate true fund performance in this scenario, regardless of flow timing."
+      ],
+      "correct": 0,
+      "why": "TWR is cash-flow neutral (chain-links sub-period returns); IRR is sensitive to the size and timing of investor cash flows."
+    },
+    {
+      "id": "q218",
+      "prompt": "A fund returns 10%, 10%, and -5% in three consecutive years. What is the time-weighted return over the 3 years?",
+      "diff": "m",
+      "topic": "time_weighted_returns",
+      "lo": "TWR = ∏(1+R_t) - 1, chain-linking sub-period returns regardless of cash flow timing",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.1495,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "TWR = (1+0.1)×(1+0.1)×(1+-0.05) - 1 = 14.95%",
+        {
+          "m": "TWR = ∏(1+R_t) - 1, chain-linking sub-period returns regardless of cash flow timing"
+        }
+      ]
+    },
+    {
+      "id": "q219",
+      "prompt": "Monthly returns: 3%, 5%, -2%, 1%, 4%. Compute the sample mean and standard deviation.",
+      "diff": "m",
+      "topic": "variance_and_standard_deviation",
+      "lo": "σ² = Σ(R_t - R̄)² / (T-1); σ = √σ²",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "text"
+        }
+      ],
+      "solution": [
+        "Mean = Σ returns / 5 = 2.20%. Variance = Σ(R-mean)²/(5-1) = 0.000770. SD = √variance = 2.77%",
+        {
+          "m": "σ² = Σ(R_t - R̄)² / (T-1); σ = √σ²"
+        }
+      ]
+    },
+    {
+      "id": "q220",
+      "prompt": "A fund's monthly standard deviation is 6%. Assuming independent returns, what is the annualized standard deviation?",
+      "diff": "e",
+      "topic": "variance_and_standard_deviation",
+      "lo": "σ_T = σ_1 × √T for independent returns",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.20800000000000002,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "σ_annual = σ_monthly × √12 = 6% × 3.464 = 20.8%",
+        {
+          "m": "σ_T = σ_1 × √T for independent returns"
+        }
+      ]
+    },
+    {
+      "id": "q221",
+      "prompt": "Returns: 5%, -3%, 2%, -6%, 4%, -1%. Compute the semi-standard deviation (downside deviation).",
+      "diff": "h",
+      "topic": "downside_risk_semi_standard_deviation",
+      "lo": "σ_D = √[(1/T) × Σ_(R_t<R̄) (R_t - R̄)²], using T (not T-1) and only observations below the mean",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.0287,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "Mean = 0.17%. Below-mean returns: -3%, -6%, -1%. σ_D = √[Σ(R_t-mean)² for R_t<mean / T] = 2.87%",
+        {
+          "m": "σ_D = √[(1/T) × Σ_(R_t<R̄) (R_t - R̄)²], using T (not T-1) and only observations below the mean"
+        }
+      ]
+    },
+    {
+      "id": "q222",
+      "prompt": "For a right-skewed (positively skewed) return series, would you expect semi-standard deviation to be higher, lower, or equal to standard deviation?",
+      "diff": "m",
+      "topic": "downside_risk_semi_standard_deviation",
+      "lo": "Semi-standard deviation only counts below-mean deviations, so it tends to be smaller than full standard deviation whenever the distribution has more/larger upside outliers than downside ones.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "Lower. Positive skew means most of the deviation comes from large upside outliers, which are excluded from semi-standard deviation, leaving a smaller downside-only measure.",
+        "Higher, since positive skew implies more large downside outliers that increase semi-standard deviation.",
+        "Equal, since semi-standard deviation is unaffected by the skewness of the underlying distribution.",
+        "It cannot be determined without also knowing the full-sample standard deviation of the series."
+      ],
+      "correct": 0,
+      "why": "Semi-standard deviation only counts below-mean deviations, so it tends to be smaller than full standard deviation whenever the distribution has more/larger upside outliers than downside ones."
+    },
+    {
+      "id": "q223",
+      "prompt": "Two assets: σ_A=18%, σ_B=12%, Cov(A,B)=0.0108. Compute the correlation coefficient.",
+      "diff": "m",
+      "topic": "covariance_and_correlation",
+      "lo": "ρ = Cov(X,Y) / (σ_X × σ_Y)",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "num",
+          "answer": 0.5,
+          "tol": 0.01
+        }
+      ],
+      "solution": [
+        "ρ = Cov / (σ_A × σ_B) = 0.0108 / (0.18×0.12) = 0.0108/0.0216 = 0.50",
+        {
+          "m": "ρ = Cov(X,Y) / (σ_X × σ_Y)"
+        }
+      ]
+    },
+    {
+      "id": "q224",
+      "prompt": "Two assets have σ_A=20%, σ_B=10%, and correlation ρ=-0.4. What is their covariance?",
+      "diff": "m",
+      "topic": "covariance_and_correlation",
+      "lo": "Cov(X,Y) = ρ_XY × σ_X × σ_Y",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "num",
+          "answer": -0.008,
+          "tol": 0.01
+        }
+      ],
+      "solution": [
+        "Cov = ρ × σ_A × σ_B = -0.4 × 0.2 × 0.1 = -0.0080",
+        {
+          "m": "Cov(X,Y) = ρ_XY × σ_X × σ_Y"
+        }
+      ]
+    },
+    {
+      "id": "q225",
+      "prompt": "A stock has correlation 0.6 with the market, stock σ=22%, market σ=16%. Calculate beta.",
+      "diff": "m",
+      "topic": "beta",
+      "lo": "β = ρ_im × (σ_i / σ_m)",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "num",
+          "answer": 0.82,
+          "tol": 0.01
+        }
+      ],
+      "solution": [
+        "β = ρ × (σ_stock/σ_market) = 0.6 × (0.22/0.16) = 0.82",
+        {
+          "m": "β = ρ_im × (σ_i / σ_m)"
+        }
+      ]
+    },
+    {
+      "id": "q226",
+      "prompt": "Can a hedge fund have a negative beta, and what would that imply?",
+      "diff": "h",
+      "topic": "beta",
+      "lo": "β < 0 indicates an inverse relationship with the market factor; this is a deliberate feature of some hedging and short-biased strategies, not necessarily a modeling error.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "Yes. A negative beta means the fund tends to move opposite to the market — rising when the market falls. Short-biased and some tail-risk hedging strategies commonly exhibit negative beta.",
+        "No, beta is mathematically bounded between 0 and 1 for any well-diversified investment strategy.",
+        "Yes, but a negative beta simply indicates a data error or insufficient sample size in the regression.",
+        "Yes, and it means the fund's returns are entirely uncorrelated with any market or systematic factor."
+      ],
+      "correct": 0,
+      "why": "β < 0 indicates an inverse relationship with the market factor; this is a deliberate feature of some hedging and short-biased strategies, not necessarily a modeling error."
+    },
+    {
+      "id": "q227",
+      "prompt": "What would first-order autocorrelation close to zero suggest about a return series?",
+      "diff": "m",
+      "topic": "autocorrelation",
+      "lo": "ρ ≈ 0 for public equities is expected; large positive ρ is a red flag for smoothing in illiquid/appraisal-priced assets.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "It suggests returns are close to independent from one period to the next — consistent with an efficiently priced, liquid market where today's return contains little information about tomorrow's.",
+        "It suggests the return series is highly smoothed and likely subject to significant appraisal-based pricing effects.",
+        "It suggests the asset's returns are perfectly predictable based on the prior period's return.",
+        "It indicates the asset has unusually high volatility relative to its peers."
+      ],
+      "correct": 0,
+      "why": "ρ ≈ 0 for public equities is expected; large positive ρ is a red flag for smoothing in illiquid/appraisal-priced assets."
+    },
+    {
+      "id": "q228",
+      "prompt": "A real estate index shows Q1=2.8%, Q2=4.1%, with autocorrelation ρ=0.5. What is the true unsmoothed Q2 return?",
+      "diff": "h",
+      "topic": "unsmoothing_returns",
+      "lo": "R_True = (R_Reported - ρ×R_Reported_(t-1)) / (1 - ρ)",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.054000000000000006,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "R_true_Q2 = (4.1% - 0.5×2.8%) / (1-0.5) = 5.40%",
+        {
+          "m": "R_True = (R_Reported - ρ×R_Reported_(t-1)) / (1 - ρ)"
+        }
+      ]
+    },
+    {
+      "id": "q229",
+      "prompt": "Same index (Q1=2.8%, Q2=4.1%) but with a stronger autocorrelation ρ=0.8. What is the unsmoothed Q2 return now?",
+      "diff": "h",
+      "topic": "unsmoothing_returns",
+      "lo": "Higher ρ implies stronger smoothing correction and a larger swing in the unsmoothed estimate",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.09300000000000001,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "R_true_Q2 = (4.1% - 0.8×2.8%) / (1-0.8) = 9.30%",
+        {
+          "m": "Higher ρ implies stronger smoothing correction and a larger swing in the unsmoothed estimate"
+        }
+      ]
+    },
+    {
+      "id": "q230",
+      "prompt": "Portfolio return 14%, risk-free rate 3%, volatility 18%. Compute the Sharpe ratio.",
+      "diff": "e",
+      "topic": "sharpe_ratio",
+      "lo": "SR = (Portfolio Return - Risk-Free Rate) / Volatility",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "num",
+          "answer": 0.61,
+          "tol": 0.01
+        }
+      ],
+      "solution": [
+        "SR = (14%-3%)/18% = 0.61",
+        {
+          "m": "SR = (Portfolio Return - Risk-Free Rate) / Volatility"
+        }
+      ]
+    },
+    {
+      "id": "q231",
+      "prompt": "A fund's monthly Sharpe ratio is 0.15. What is the annualized Sharpe ratio?",
+      "diff": "m",
+      "topic": "sharpe_ratio",
+      "lo": "Annualized SR = Monthly SR × √12 (excess return scales with T, volatility with √T)",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "num",
+          "answer": 0.52,
+          "tol": 0.01
+        }
+      ],
+      "solution": [
+        "Annualized SR = Monthly SR × √12 = 0.15 × 3.464 = 0.52",
+        {
+          "m": "Annualized SR = Monthly SR × √12 (excess return scales with T, volatility with √T)"
+        }
+      ]
+    },
+    {
+      "id": "q232",
+      "prompt": "Fund return 11%, benchmark 8%, tracking error 5%. Calculate the Information Ratio.",
+      "diff": "m",
+      "topic": "information_ratio",
+      "lo": "IR = (Portfolio Return - Benchmark Return) / Tracking Error",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "num",
+          "answer": 0.6,
+          "tol": 0.01
+        }
+      ],
+      "solution": [
+        "IR = (11%-8%)/5% = 0.60",
+        {
+          "m": "IR = (Portfolio Return - Benchmark Return) / Tracking Error"
+        }
+      ]
+    },
+    {
+      "id": "q233",
+      "prompt": "Hedge fund return 10%, risk-free 3%, beta 0.4. Compute the Treynor ratio.",
+      "diff": "m",
+      "topic": "treynor_ratio",
+      "lo": "TR = (Fund Return - Risk-Free Rate) / Beta",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.175,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "TR = (10%-3%)/0.4 = 17.5%",
+        {
+          "m": "TR = (Fund Return - Risk-Free Rate) / Beta"
+        }
+      ]
+    },
+    {
+      "id": "q234",
+      "prompt": "Fund return 12%, target return 5%, downside deviation 9%. Compute the Sortino ratio.",
+      "diff": "m",
+      "topic": "sortino_ratio",
+      "lo": "SortR = (Fund Return - Target Return) / Downside Deviation",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "num",
+          "answer": 0.78,
+          "tol": 0.01
+        }
+      ],
+      "solution": [
+        "SortR = (12%-5%)/9% = 0.78",
+        {
+          "m": "SortR = (Fund Return - Target Return) / Downside Deviation"
+        }
+      ]
+    },
+    {
+      "id": "q235",
+      "prompt": "Over 24 months, a fund beats its benchmark in 17 months. What is the batting average?",
+      "diff": "e",
+      "topic": "batting_average",
+      "lo": "BA = # periods beating benchmark / total # periods",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.708,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "BA = 17/24 = 70.8%",
+        {
+          "m": "BA = # periods beating benchmark / total # periods"
+        }
+      ]
+    },
+    {
+      "id": "q236",
+      "prompt": "Risk-free rate 2.5%, market risk premium 7%, stock beta 1.4. What is the CAPM expected return?",
+      "diff": "e",
+      "topic": "capm_and_alpha",
+      "lo": "CAPM: E[R] = R_f + β×(R_m - R_f)",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.12300000000000001,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "E[R] = 2.5% + 1.4×7% = 12.30%",
+        {
+          "m": "CAPM: E[R] = R_f + β×(R_m - R_f)"
+        }
+      ]
+    },
+    {
+      "id": "q237",
+      "prompt": "Using the CAPM prediction above (12.30%), if the fund's actual return was 13%, what is its alpha?",
+      "diff": "m",
+      "topic": "capm_and_alpha",
+      "lo": "Alpha = Actual Return - CAPM Expected Return",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.006999999999999999,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "α = Actual - CAPM prediction = 13% - 12.30% = 0.70%",
+        {
+          "m": "Alpha = Actual Return - CAPM Expected Return"
+        }
+      ]
+    },
+    {
+      "id": "q238",
+      "prompt": "A fund has factor exposures β1=0.5 (factor return 6%), β2=-0.3 (factor return -2%), β3=0.8 (factor return 3%), R_f=2%. Actual fund return is 9%. Compute alpha.",
+      "diff": "h",
+      "topic": "multifactor_models",
+      "lo": "Model return = R_f + Σ(β_i × Factor_i); Alpha = Actual - Model",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.01,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "Factor contribution = 0.5×6% + -0.3×-2% + 0.8×3% = 6.00%. Model return = 2%+6.00% = 8.00%. Alpha = 9%-8.00% = 1.00%",
+        {
+          "m": "Model return = R_f + Σ(β_i × Factor_i); Alpha = Actual - Model"
+        }
+      ]
+    },
+    {
+      "id": "q239",
+      "prompt": "A fund has alpha of 2.5% and residual (idiosyncratic) risk of 6%. Compute the Appraisal Ratio.",
+      "diff": "m",
+      "topic": "appraisal_ratio",
+      "lo": "AR = Alpha / Idiosyncratic Risk (residual standard deviation from factor regression)",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "num",
+          "answer": 0.42,
+          "tol": 0.01
+        }
+      ],
+      "solution": [
+        "AR = α/σ_ε = 2.5%/6% = 0.42",
+        {
+          "m": "AR = Alpha / Idiosyncratic Risk (residual standard deviation from factor regression)"
+        }
+      ]
+    },
+    {
+      "id": "q240",
+      "prompt": "A fund has Upside Capture of 90% and Downside Capture of 60%. Is this a desirable profile, and why?",
+      "diff": "h",
+      "topic": "capture_ratios",
+      "lo": "Capture Ratio = UC/DC > 1 is desirable: it means a fund participates more in gains than it does in losses relative to its benchmark.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "Yes — the Overall Capture Ratio (UC/DC) = 90%/60% = 1.5, above 1.0. The fund captures most of the market's upside while losing much less than the market on the downside, indicating strong asymmetric risk management.",
+        "No — a Downside Capture below 100% means the fund is losing more than the benchmark, which is undesirable.",
+        "It's undesirable because Upside Capture below 100% means the fund fails to keep pace with the market in any environment.",
+        "It's neutral — Upside and Downside Capture ratios don't provide meaningful information unless both equal exactly 100%."
+      ],
+      "correct": 0,
+      "why": "Capture Ratio = UC/DC > 1 is desirable: it means a fund participates more in gains than it does in losses relative to its benchmark."
+    },
+    {
+      "id": "q241",
+      "prompt": "A fund's monthly return volatility is 7%. Using the parametric method, what is the 95% monthly VaR?",
+      "diff": "m",
+      "topic": "value_at_risk",
+      "lo": "Parametric VaR = N_α × σ × √T (here T=1, z_95%=1.645)",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.115,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "VaR_95% = z_95% × σ = 1.645 × 7% = 11.5%",
+        {
+          "m": "Parametric VaR = N_α × σ × √T (here T=1, z_95%=1.645)"
+        }
+      ]
+    },
+    {
+      "id": "q242",
+      "prompt": "Same fund (monthly σ=7%). What is the parametric 99% monthly VaR?",
+      "diff": "h",
+      "topic": "value_at_risk",
+      "lo": "Higher confidence level uses a larger z-score (2.33 for 99% vs. 1.645 for 95%), producing a larger VaR",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.163,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "VaR_99% = z_99% × σ = 2.33 × 7% = 16.3%",
+        {
+          "m": "Higher confidence level uses a larger z-score (2.33 for 99% vs. 1.645 for 95%), producing a larger VaR"
+        }
+      ]
+    },
+    {
+      "id": "q243",
+      "prompt": "A fund's NAV peaks at $250M and later falls to $165M before recovering. What is the maximum drawdown?",
+      "diff": "e",
+      "topic": "drawdown",
+      "lo": "MDD = (Trough Value - Peak Value) / Peak Value",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": -0.34,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "MDD = (165-250)/250 = -34.0%",
+        {
+          "m": "MDD = (Trough Value - Peak Value) / Peak Value"
+        }
+      ]
+    },
+    {
+      "id": "q244",
+      "prompt": "Why are hedge funds typically structured as limited partnerships rather than corporations?",
+      "diff": "m",
+      "topic": "definition_characteristics",
+      "lo": "The LP/GP structure is standard in hedge funds and private equity because it aligns tax efficiency with the economics of a performance-fee-based business.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "LP structures provide pass-through taxation (avoiding entity-level tax), limited liability for investors (LPs), and flexibility in profit allocation (carried interest to the GP) that a corporate structure would not easily allow.",
+        "LP structures are required by the SEC specifically for any fund charging a performance fee.",
+        "Corporations offer better tax treatment for performance fees, which is why LPs are used instead to avoid this benefit.",
+        "LP structures eliminate the need for a General Partner, simplifying fund governance."
+      ],
+      "correct": 0,
+      "why": "The LP/GP structure is standard in hedge funds and private equity because it aligns tax efficiency with the economics of a performance-fee-based business."
+    },
+    {
+      "id": "q245",
+      "prompt": "How did the 2008 financial crisis change hedge fund liquidity terms industry-wide?",
+      "diff": "h",
+      "topic": "definition_characteristics",
+      "lo": "The crisis exposed a liquidity mismatch: funds holding illiquid assets but offering frequent redemptions could not meet redemption demands, prompting structural changes to align fund liquidity with asset liquidity.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "Many funds imposed 'gates' (redemption limits) or suspended redemptions entirely when hit with simultaneous investor withdrawal requests during a period of illiquid, hard-to-value assets. This led to longer lock-ups and more explicit gate provisions in subsequent fund documents.",
+        "The crisis led funds to shorten lock-up periods and offer daily redemptions to rebuild investor trust.",
+        "The crisis had little lasting effect on liquidity terms, since most funds already had ample cash reserves.",
+        "The crisis primarily affected mutual fund liquidity terms, with little spillover to hedge fund structures."
+      ],
+      "correct": 0,
+      "why": "The crisis exposed a liquidity mismatch: funds holding illiquid assets but offering frequent redemptions could not meet redemption demands, prompting structural changes to align fund liquidity with asset liquidity."
+    },
+    {
+      "id": "q246",
+      "prompt": "What is a 'redemption gate' and why do funds use them?",
+      "diff": "m",
+      "topic": "operational_features",
+      "lo": "Gates prevent a 'run on the fund' where early redeemers are paid out at the expense of remaining investors, particularly important for funds holding illiquid positions.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "A gate caps the percentage of fund assets (e.g., 10-25%) that can be redeemed in a given period. It protects remaining investors from forced asset sales at distressed prices when many investors try to redeem simultaneously.",
+        "A gate is a minimum investment size required to enter the fund, set to limit the number of small investors.",
+        "A gate is a fixed fee charged to investors who redeem within the first year of investing.",
+        "A gate refers to the physical security measures protecting a fund's trading operations."
+      ],
+      "correct": 0,
+      "why": "Gates prevent a 'run on the fund' where early redeemers are paid out at the expense of remaining investors, particularly important for funds holding illiquid positions."
+    },
+    {
+      "id": "q247",
+      "prompt": "What does 'accredited investor' mean in the context of hedge fund access?",
+      "diff": "e",
+      "topic": "operational_features",
+      "lo": "Accredited investor status is a legal gatekeeping requirement that restricts hedge fund access to investors presumed capable of evaluating and bearing the risks involved.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "A U.S. regulatory classification (under Reg D) requiring a minimum net worth or income threshold, meant to ensure investors have the financial sophistication and risk tolerance appropriate for less-regulated investment vehicles.",
+        "Any investor who has held a brokerage account for at least five years.",
+        "An investor who has passed a licensing exam administered by FINRA.",
+        "An investor pre-approved by the SEC to trade derivatives without additional disclosure."
+      ],
+      "correct": 0,
+      "why": "Accredited investor status is a legal gatekeeping requirement that restricts hedge fund access to investors presumed capable of evaluating and bearing the risks involved."
+    },
+    {
+      "id": "q248",
+      "prompt": "Why is the master fund typically domiciled offshore (e.g., Cayman Islands) rather than onshore?",
+      "diff": "h",
+      "topic": "master_feeder_structure",
+      "lo": "Offshore domicile of the master fund is a tax-neutrality choice: it lets each feeder's investors receive the tax treatment appropriate to their own jurisdiction, without the master itself creating additional tax friction.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "An offshore master avoids creating a taxable U.S. trade or business for non-U.S. and tax-exempt investors, and provides a neutral jurisdiction that doesn't disadvantage any investor type relative to others.",
+        "Offshore domicile is required by U.S. law for any fund charging a performance fee above 15%.",
+        "Offshore domicile primarily exists to avoid U.S. securities regulation entirely for all investors.",
+        "Onshore U.S. domicile would be illegal for any fund using a master-feeder structure."
+      ],
+      "correct": 0,
+      "why": "Offshore domicile of the master fund is a tax-neutrality choice: it lets each feeder's investors receive the tax treatment appropriate to their own jurisdiction, without the master itself creating additional tax friction."
+    },
+    {
+      "id": "q249",
+      "prompt": "In a master-feeder structure, can feeder funds hold assets directly instead of investing through the master?",
+      "diff": "m",
+      "topic": "master_feeder_structure",
+      "lo": "This is the defining feature of the structure: feeders exist purely to aggregate capital from different investor types, while the master fund is the single trading vehicle.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "No — by design, feeder funds invest exclusively in the master fund and do not hold underlying portfolio positions directly. Only the master fund executes trades and holds assets.",
+        "Yes, feeders typically hold half their assets directly and invest the rest through the master.",
+        "Yes, feeders are required to hold at least some direct positions to maintain their own regulatory status.",
+        "It depends on the feeder's jurisdiction; offshore feeders may hold assets directly while onshore feeders cannot."
+      ],
+      "correct": 0,
+      "why": "This is the defining feature of the structure: feeders exist purely to aggregate capital from different investor types, while the master fund is the single trading vehicle."
+    },
+    {
+      "id": "q250",
+      "prompt": "What is a key limitation of using hedge fund index data (e.g., HFRI) to evaluate industry performance?",
+      "diff": "m",
+      "topic": "data_providers",
+      "lo": "Because reporting to databases like HFR is voluntary, the resulting indices are not a fully representative or unbiased sample of the entire hedge fund universe.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "Hedge fund databases suffer from self-reporting bias (funds choose whether to report) and survivorship bias (funds that close or perform poorly often stop reporting and are removed), which tends to overstate historical industry returns.",
+        "Hedge fund index data is limited mainly by its inability to track daily price movements.",
+        "The main limitation is that indices only cover long-only strategies, excluding short-biased funds entirely.",
+        "Index data is fully audited and regulated, so its main limitation is simply infrequent (annual) updates."
+      ],
+      "correct": 0,
+      "why": "Because reporting to databases like HFR is voluntary, the resulting indices are not a fully representative or unbiased sample of the entire hedge fund universe."
+    },
+    {
+      "id": "q251",
+      "prompt": "A fund has $620M in assets, $45M in liabilities, and 5,750,000 shares outstanding. What is the NAV per share?",
+      "diff": "e",
+      "topic": "nav_and_nav_per_share",
+      "lo": "NAV per Share = (Assets - Liabilities) / Shares Outstanding",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer ($)",
+          "unit": "usd",
+          "answer": 100.0,
+          "tol": 1.0
+        }
+      ],
+      "solution": [
+        "NAV = $620M - $45M = $575M. NAV/share = $575M / 5,750,000 shares = $100.00",
+        {
+          "m": "NAV per Share = (Assets - Liabilities) / Shares Outstanding"
+        }
+      ]
+    },
+    {
+      "id": "q252",
+      "prompt": "A fund starts the year with $45,000,000 in shareholder capital and 520,000 shares outstanding. During the year it has a $3,200,000 investment loss, pays $850,000 in dividends, and buys back $2,100,000 of shares at $82/share. What is the ending NAV per share?",
+      "diff": "h",
+      "topic": "nav_and_nav_per_share",
+      "lo": "NAV_end = NAV_beg - Losses - Dividends - Buybacks; Shares_end = Shares_beg - (Buyback $ / Buyback Price)",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer ($)",
+          "unit": "usd",
+          "answer": 78.58,
+          "tol": 0.7858
+        }
+      ],
+      "solution": [
+        "Ending capital = $45,000,000 - $3,200,000 - $850,000 - $2,100,000 = $38,850,000. Shares repurchased = $2,100,000/82 = 25,610. Ending shares = 520,000 - 25,610 = 494,390. NAV/share = $38,850,000/494,390 = $78.58",
+        {
+          "m": "NAV_end = NAV_beg - Losses - Dividends - Buybacks; Shares_end = Shares_beg - (Buyback $ / Buyback Price)"
+        }
+      ]
+    },
+    {
+      "id": "q253",
+      "prompt": "A fund with $300M AUM charges 2% management fee and 20% performance fee (computed independently). The fund returns 25%. What are the management and performance fees?",
+      "diff": "e",
+      "topic": "2_and_20_fee_structure",
+      "lo": "Independent fees: Mgmt = AUM × mgmt%; Perf = AUM × return × perf%",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "text"
+        }
+      ],
+      "solution": [
+        "Mgmt Fee = $300M × 2% = $6.0M. Perf Fee = $300M × 25% × 20% = $15.0M",
+        {
+          "m": "Independent fees: Mgmt = AUM × mgmt%; Perf = AUM × return × perf%"
+        }
+      ]
+    },
+    {
+      "id": "q254",
+      "prompt": "Same fund as above, but the performance fee is computed net of the management fee. What is the performance fee now?",
+      "diff": "m",
+      "topic": "2_and_20_fee_structure",
+      "lo": "Net-of-mgmt: Perf fee = (Gross profit - Mgmt fee) × Perf%",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer ($)",
+          "unit": "usd",
+          "answer": 13.8,
+          "tol": 0.5
+        }
+      ],
+      "solution": [
+        "Gross profit = $75M. Net of mgmt fee = $75M - $6.0M = $69.0M. Perf fee = $69.0M × 20% = $13.80M",
+        {
+          "m": "Net-of-mgmt: Perf fee = (Gross profit - Mgmt fee) × Perf%"
+        }
+      ]
+    },
+    {
+      "id": "q255",
+      "prompt": "A fund returns 22% gross. Management fee is 1.5%, performance fee 20% (net of management fees). What is the investor's net return?",
+      "diff": "m",
+      "topic": "fee_computations",
+      "lo": "Net Return = (Gross Return - Mgmt Fee%) × (1 - Perf Fee%)",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.16399999999999998,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "Net of mgmt = 22%-1.5%=20.50%. Net return = 20.50%×(1-20%) = 16.40%",
+        {
+          "m": "Net Return = (Gross Return - Mgmt Fee%) × (1 - Perf Fee%)"
+        }
+      ]
+    },
+    {
+      "id": "q256",
+      "prompt": "A fund returns 16% gross, charges 2% management fee, has a 6% hurdle rate, and 20% performance fee on returns above the hurdle (computed net of management fee). What is the net investor return?",
+      "diff": "h",
+      "topic": "hurdle_rates",
+      "lo": "Net Return = (Gross - Mgmt%) - (Gross - Mgmt% - Hurdle) × Perf%",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.124,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "Net of mgmt = 16%-2%=14%. Excess over hurdle = 14%-6%=8%. Perf fee = 8%×20%=1.6%. Net return = 14%-1.6%=12.4%",
+        {
+          "m": "Net Return = (Gross - Mgmt%) - (Gross - Mgmt% - Hurdle) × Perf%"
+        }
+      ]
+    },
+    {
+      "id": "q257",
+      "prompt": "What is the difference between a 'hard hurdle' and a 'soft hurdle'?",
+      "diff": "m",
+      "topic": "hurdle_rates",
+      "lo": "Soft hurdles are more generous to managers: crossing the hurdle threshold unlocks fees on the full return, not just the amount above the threshold.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "With a hard hurdle, the manager earns performance fees only on returns above the hurdle. With a soft hurdle, once the fund's return exceeds the hurdle, the manager earns performance fees on the ENTIRE return (not just the excess above the hurdle).",
+        "A hard hurdle applies to management fees, while a soft hurdle applies only to performance fees.",
+        "A soft hurdle means the manager never earns performance fees, while a hard hurdle guarantees full fees regardless of return.",
+        "There is no practical difference; both terms describe the same fee mechanism under different names."
+      ],
+      "correct": 0,
+      "why": "Soft hurdles are more generous to managers: crossing the hurdle threshold unlocks fees on the full return, not just the amount above the threshold."
+    },
+    {
+      "id": "q258",
+      "prompt": "A fund's HWM is $100/share. It declines 30%, then gains 30% from the new lower base. Is the fund back above its HWM, and does it owe performance fees?",
+      "diff": "m",
+      "topic": "high_water_marks",
+      "lo": "A percentage gain from a lower base does not fully offset an equal percentage loss; NAV must exceed the original HWM before performance fees resume",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "text"
+        }
+      ],
+      "solution": [
+        "After decline: $100×(1-30%)=$70.00. After recovery: $70.00×(1+30%)=$91.00, which is still below the $100 HWM.",
+        {
+          "m": "A percentage gain from a lower base does not fully offset an equal percentage loss; NAV must exceed the original HWM before performance fees resume"
+        }
+      ]
+    },
+    {
+      "id": "q259",
+      "prompt": "Some hedge funds offer a 'HWM reset' provision. What does this mean and why might investors be cautious about it?",
+      "diff": "h",
+      "topic": "high_water_marks",
+      "lo": "Resets shift the benefit toward the manager; a rational LP would prefer the original HWM remain in place until fully recovered, or negotiate compensation (e.g., fee discounts) in exchange for agreeing to a reset.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "A HWM reset lowers the high-water mark (often after a sustained drawdown) so the manager can start earning performance fees again sooner, even though NAV hasn't recovered to the original peak. Investors should be cautious because it effectively lets the manager get paid on partial recovery rather than full recovery of past losses.",
+        "A HWM reset raises the high-water mark to a new all-time high, making it harder for the manager to earn fees.",
+        "A HWM reset eliminates performance fees permanently once triggered.",
+        "A HWM reset is a regulatory requirement that funds must apply annually regardless of performance."
+      ],
+      "correct": 0,
+      "why": "Resets shift the benefit toward the manager; a rational LP would prefer the original HWM remain in place until fully recovered, or negotiate compensation (e.g., fee discounts) in exchange for agreeing to a reset."
+    },
+    {
+      "id": "q260",
+      "prompt": "What is a 'short squeeze'?",
+      "diff": "m",
+      "topic": "short_selling_mechanics",
+      "lo": "Short squeezes are a key risk of short selling: rising prices force covering (buying), which adds more buying pressure, potentially causing outsized, rapid losses for short sellers.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "A rapid price increase in a heavily shorted stock that forces short sellers to buy back shares to cover their positions and limit losses, which itself pushes the price up further, creating a feedback loop.",
+        "A gradual, steady decline in a stock's price due to sustained selling pressure from short sellers.",
+        "A regulatory halt placed on trading a heavily shorted stock to protect long investors.",
+        "A strategy where short sellers deliberately drive a stock's price down to trigger stop-loss orders."
+      ],
+      "correct": 0,
+      "why": "Short squeezes are a key risk of short selling: rising prices force covering (buying), which adds more buying pressure, potentially causing outsized, rapid losses for short sellers."
+    },
+    {
+      "id": "q261",
+      "prompt": "Why might a stock be 'hard to borrow,' and what is the consequence for a short seller?",
+      "diff": "h",
+      "topic": "short_selling_mechanics",
+      "lo": "Hard-to-borrow stocks carry additional financing costs beyond standard margin interest, which must be factored into the expected profitability of a short trade.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "A stock is hard to borrow when few shares are available to lend (e.g., low float, high existing short interest). This typically results in higher borrow fees (negative rebate rates) that the short seller must pay, reducing the profitability of the short position.",
+        "Hard-to-borrow stocks are simply those with low trading volume, which has no effect on short-selling costs.",
+        "Hard-to-borrow status only affects long positions, requiring additional margin to purchase the stock.",
+        "A hard-to-borrow stock guarantees the short seller a rebate (payment) rather than a borrowing cost."
+      ],
+      "correct": 0,
+      "why": "Hard-to-borrow stocks carry additional financing costs beyond standard margin interest, which must be factored into the expected profitability of a short trade."
+    },
+    {
+      "id": "q262",
+      "prompt": "An investor shorts 300 shares at $45. Under Reg T initial margin rules, what account balance is required?",
+      "diff": "m",
+      "topic": "margin_requirements",
+      "lo": "Initial margin = 150% of short sale value (100% proceeds + 50% additional equity)",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "text"
+        }
+      ],
+      "solution": [
+        "Proceeds = 300×$45 = $13,500. Initial margin = 150% × $13,500 = $20,250",
+        {
+          "m": "Initial margin = 150% of short sale value (100% proceeds + 50% additional equity)"
+        }
+      ]
+    },
+    {
+      "id": "q263",
+      "prompt": "From the position above (account balance $20,250), the stock rises to $54. What is the margin ratio, and is there a margin call?",
+      "diff": "h",
+      "topic": "margin_requirements",
+      "lo": "Margin ratio = Account Equity / Current Short Position Value; compare to 30% maintenance minimum",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "text"
+        }
+      ],
+      "solution": [
+        "Short value = 300×$54=$16,200. Equity = $20,250-$16,200=$4,050. Margin ratio = $4,050/$16,200=25.0%, below the 30% maintenance threshold.",
+        {
+          "m": "Margin ratio = Account Equity / Current Short Position Value; compare to 30% maintenance minimum"
+        }
+      ]
+    },
+    {
+      "id": "q264",
+      "prompt": "A fund has $130M long, $70M short, and $100M NAV. Compute gross and net leverage.",
+      "diff": "e",
+      "topic": "leverage_calculations",
+      "lo": "Gross Leverage = (Long+|Short|)/NAV; Net Leverage = (Long-Short)/NAV",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "text"
+        }
+      ],
+      "solution": [
+        "Gross = (130+70)/100 = 2.0x. Net = (130-70)/100 = 0.6x",
+        {
+          "m": "Gross Leverage = (Long+|Short|)/NAV; Net Leverage = (Long-Short)/NAV"
+        }
+      ]
+    },
+    {
+      "id": "q265",
+      "prompt": "Two funds both have 100% gross leverage. Fund A is 50% long / 50% short. Fund B is 100% long / 0% short. What does this tell you about their net leverage and market exposure?",
+      "diff": "m",
+      "topic": "leverage_calculations",
+      "lo": "Gross leverage alone does not reveal a fund's market exposure; net leverage (Long - Short) is needed to assess directional risk.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "Fund A has 0% net leverage (market neutral); Fund B has 100% net leverage (fully long-biased). Identical gross leverage can hide very different directional market exposure — gross measures capital deployed, net measures directional bias.",
+        "Both funds must have identical net leverage since their gross leverage figures are the same.",
+        "Fund A has 100% net leverage and Fund B has 0% net leverage — the reverse of the correct relationship.",
+        "Gross leverage alone fully determines a fund's market exposure, regardless of the long/short split."
+      ],
+      "correct": 0,
+      "why": "Gross leverage alone does not reveal a fund's market exposure; net leverage (Long - Short) is needed to assess directional risk."
+    },
+    {
+      "id": "q266",
+      "prompt": "A long-biased equity long/short fund is 65% long and 35% short. What are its gross and net exposures?",
+      "diff": "e",
+      "topic": "gross_and_net_exposure",
+      "lo": "Gross = Long+|Short|; Net = Long-Short",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "text"
+        }
+      ],
+      "solution": [
+        "Gross = 65%+35%=100%. Net = 65%-35%=30%",
+        {
+          "m": "Gross = Long+|Short|; Net = Long-Short"
+        }
+      ]
+    },
+    {
+      "id": "q267",
+      "prompt": "What is 'rehypothecation' in the context of a prime brokerage relationship?",
+      "diff": "h",
+      "topic": "prime_broker_concepts",
+      "lo": "Rehypothecation is a standard but risk-relevant feature of prime brokerage; it was a major factor in fund losses when Lehman Brothers (a prime broker) failed in 2008, since rehypothecated assets became entangled in Lehman's bankruptcy estate.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "The practice of a prime broker using assets pledged as collateral by a hedge fund (e.g., securities in a margin account) for its own purposes, such as lending them to other clients or using them as collateral for its own borrowing.",
+        "The process by which a prime broker returns all client collateral at the end of each trading day.",
+        "A regulatory requirement that prime brokers hold client assets in fully segregated accounts at all times.",
+        "The practice of a hedge fund lending its own capital directly to other hedge funds through the prime broker."
+      ],
+      "correct": 0,
+      "why": "Rehypothecation is a standard but risk-relevant feature of prime brokerage; it was a major factor in fund losses when Lehman Brothers (a prime broker) failed in 2008, since rehypothecated assets became entangled in Lehman's bankruptcy estate."
+    },
+    {
+      "id": "q268",
+      "prompt": "What is a 'pair trade' within a long/short equity strategy?",
+      "diff": "m",
+      "topic": "long_short_equity",
+      "lo": "Pair trades isolate stock-specific views (e.g., 'Ford will outperform GM') while minimizing exposure to overall market or sector moves that would affect both stocks similarly.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "A trade that goes long one stock and short a related stock (often in the same sector or industry), designed to profit from the relative performance between the two while hedging out broader market and sector risk.",
+        "Going long two stocks in different sectors to maximize diversification benefits.",
+        "Shorting two unrelated stocks simultaneously to double the fund's bearish market exposure.",
+        "A trade requiring exactly two portfolio managers to jointly approve before execution."
+      ],
+      "correct": 0,
+      "why": "Pair trades isolate stock-specific views (e.g., 'Ford will outperform GM') while minimizing exposure to overall market or sector moves that would affect both stocks similarly."
+    },
+    {
+      "id": "q269",
+      "prompt": "You allocate $2M long to a stock with beta 0.9, and want to short a different stock with beta 0.6 to be market neutral. How much should you short?",
+      "diff": "m",
+      "topic": "market_neutral",
+      "lo": "Match beta-weighted exposures, not dollar amounts: Short = (β_long/β_short) × Long",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer ($)",
+          "unit": "usd",
+          "answer": 3.0,
+          "tol": 0.5
+        }
+      ],
+      "solution": [
+        "β_long × Long = β_short × Short. 0.9×$2M = 0.6×Short. Short = $3.00M",
+        {
+          "m": "Match beta-weighted exposures, not dollar amounts: Short = (β_long/β_short) × Long"
+        }
+      ]
+    },
+    {
+      "id": "q270",
+      "prompt": "An acquirer offers $45/share cash. The target trades at $43.8 post-announcement. What is the arb return if the deal succeeds?",
+      "diff": "e",
+      "topic": "merger_arbitrage",
+      "lo": "Merger arb return = (Deal Price / Post-Announcement Price) - 1",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.0274,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "Return = $45/$43.8 - 1 = 2.74%",
+        {
+          "m": "Merger arb return = (Deal Price / Post-Announcement Price) - 1"
+        }
+      ]
+    },
+    {
+      "id": "q271",
+      "prompt": "Same deal: pre-announcement price was $34. If the deal fails and the stock reverts to the pre-announcement price, what is the arb's loss?",
+      "diff": "h",
+      "topic": "merger_arbitrage",
+      "lo": "Deal-failure return = (Pre-Announcement Price / Post-Announcement Price) - 1",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": -0.22399999999999998,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "Loss = $34/$43.8 - 1 = -22.4%",
+        {
+          "m": "Deal-failure return = (Pre-Announcement Price / Post-Announcement Price) - 1"
+        }
+      ]
+    },
+    {
+      "id": "q272",
+      "prompt": "In a stock-for-stock (rather than cash) merger, how does the arbitrageur typically hedge deal risk?",
+      "diff": "h",
+      "topic": "merger_arbitrage",
+      "lo": "This hedges out acquirer-specific stock price risk, isolating the position to the deal-completion spread rather than general market or acquirer-specific moves.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "The arbitrageur goes long the target's stock and shorts the acquirer's stock in the exchange ratio specified by the deal, locking in the spread regardless of moves in the acquirer's share price (as long as the deal closes as announced).",
+        "The arbitrageur shorts the target and goes long the acquirer, the reverse of the standard hedge.",
+        "The arbitrageur avoids hedging entirely, since stock-for-stock deals carry no acquirer-side price risk.",
+        "The arbitrageur hedges by shorting a broad market index rather than the acquirer's specific stock."
+      ],
+      "correct": 0,
+      "why": "This hedges out acquirer-specific stock price risk, isolating the position to the deal-completion spread rather than general market or acquirer-specific moves."
+    },
+    {
+      "id": "q273",
+      "prompt": "A convertible bond trades at 108% of $1000 par, has a conversion ratio of 35, and the stock trades at $32. What is the conversion value and conversion price?",
+      "diff": "m",
+      "topic": "convertible_arbitrage",
+      "lo": "CV = Conversion Ratio × Stock Price; CP = Par Value / Conversion Ratio",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "text"
+        }
+      ],
+      "solution": [
+        "CV = 35×$32=$1,120. CP = $1000/35=$28.57",
+        {
+          "m": "CV = Conversion Ratio × Stock Price; CP = Par Value / Conversion Ratio"
+        }
+      ]
+    },
+    {
+      "id": "q274",
+      "prompt": "Using the bond above (bought at $1,080, CR=35), you short 35 shares at $32. The stock rises to $38. What is the approximate net P&L?",
+      "diff": "h",
+      "topic": "convertible_arbitrage",
+      "lo": "Bond upside (toward new conversion value) largely offsets the short stock loss when the stock rises",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer ($)",
+          "unit": "usd",
+          "answer": 40.0,
+          "tol": 0.5
+        }
+      ],
+      "solution": [
+        "Short P&L = 35×($32-$38)=$-210. Bond approaches new conversion value 35×$38=$1,330, gain=$250. Net = $250+(-210)=$40",
+        {
+          "m": "Bond upside (toward new conversion value) largely offsets the short stock loss when the stock rises"
+        }
+      ]
+    },
+    {
+      "id": "q275",
+      "prompt": "A FoF invests 50% in Fund A (18% return) and 50% in Fund B (8% return). Both underlying funds charge 2/20. The FoF itself charges 1/10. What is the investor's net return?",
+      "diff": "h",
+      "topic": "fund_of_funds",
+      "lo": "Apply underlying fund fees first, weight by allocation, then apply FoF-level fees on top",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.0702,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "Fund A net = (18%-2%)×(1-20%)=12.80%. Fund B net = (8%-2%)×(1-20%)=4.80%. FoF gross = 50%×12.80%+50%×4.80%=8.80%. FoF net = (8.80%-1%)×(1-10%)=7.02%",
+        {
+          "m": "Apply underlying fund fees first, weight by allocation, then apply FoF-level fees on top"
+        }
+      ]
+    },
+    {
+      "id": "q276",
+      "prompt": "Beyond fee drag, what operational benefit does a fund of funds offer institutional investors with limited internal due-diligence resources?",
+      "diff": "m",
+      "topic": "fund_of_funds",
+      "lo": "FoFs effectively outsource manager research and portfolio construction, which can be valuable for LPs without dedicated hedge fund research teams, despite the extra fee layer.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "The FoF manager performs manager selection, ongoing due diligence, and monitoring across many underlying hedge funds, which smaller LPs may lack the staff or expertise to do themselves.",
+        "FoFs primarily benefit investors by eliminating the need for any performance fee at the underlying fund level.",
+        "FoFs guarantee lower volatility than any single underlying hedge fund, regardless of correlation.",
+        "The main benefit is faster redemption terms than investing directly in the underlying hedge funds."
+      ],
+      "correct": 0,
+      "why": "FoFs effectively outsource manager research and portfolio construction, which can be valuable for LPs without dedicated hedge fund research teams, despite the extra fee layer."
+    },
+    {
+      "id": "q277",
+      "prompt": "A manager delivers 7%+2.5% alpha on an index with financing cost 3.5%. You want to port this alpha onto a different index returning 9% with financing cost 4.5%. What is the total portable alpha return?",
+      "diff": "h",
+      "topic": "portable_alpha",
+      "lo": "Total Return = Manager Return - Short Original Index (net of financing) + Long New Index (net of financing)",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.105,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "Total = 7%+2.5% - (7%-3.5%) + (9%-4.5%) = 10.50%",
+        {
+          "m": "Total Return = Manager Return - Short Original Index (net of financing) + Long New Index (net of financing)"
+        }
+      ]
+    },
+    {
+      "id": "q278",
+      "prompt": "What is the main risk of a portable alpha strategy if the 'alpha' manager's returns turn out to be correlated with the index being shorted?",
+      "diff": "h",
+      "topic": "portable_alpha",
+      "lo": "Portable alpha assumes the alpha source is genuinely uncorrelated with the index being replaced; if that assumption fails, the strategy's risk profile becomes more complex and potentially riskier than intended.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "If the manager's returns are correlated with the shorted index, the strategy no longer cleanly isolates skill from market exposure — losses in the manager's portfolio during a market decline could compound with losses on the short index position (or vice versa), undermining the intended risk-neutral overlay.",
+        "There is no risk in this scenario, since portable alpha strategies are always market-neutral by construction.",
+        "The main risk would be excessive diversification, reducing the manager's ability to generate any alpha at all.",
+        "The risk only affects the financing cost of the short index position, not the overall strategy risk profile."
+      ],
+      "correct": 0,
+      "why": "Portable alpha assumes the alpha source is genuinely uncorrelated with the index being replaced; if that assumption fails, the strategy's risk profile becomes more complex and potentially riskier than intended."
+    },
+    {
+      "id": "q279",
+      "prompt": "Why can two hedge funds with identical annualized volatility have very different risk profiles?",
+      "diff": "m",
+      "topic": "hedge_fund_return_characteristics",
+      "lo": "Standard deviation is a symmetric measure and treats upside and downside volatility equally; it misses the shape of the distribution, which matters greatly for risk assessment.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "Volatility alone doesn't capture skewness, kurtosis, or drawdown patterns. A fund with negative skew and fat tails can have the same volatility as one with symmetric, thin-tailed returns but carry much greater tail risk.",
+        "Volatility fully captures all relevant risk information; identical volatility always implies identical risk profiles.",
+        "Skewness and kurtosis only matter for funds with negative returns, not for funds with positive average returns.",
+        "The difference must be due to one fund having a higher Sharpe ratio than the other."
+      ],
+      "correct": 0,
+      "why": "Standard deviation is a symmetric measure and treats upside and downside volatility equally; it misses the shape of the distribution, which matters greatly for risk assessment."
+    },
+    {
+      "id": "q280",
+      "prompt": "Which hedge fund strategy would you expect to show positive skewness, and why?",
+      "diff": "m",
+      "topic": "skewness_and_kurtosis",
+      "lo": "Positive skew strategies behave like long option positions: frequent small premiums paid (losses) in exchange for the possibility of large payoffs (gains) during major market moves.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "Trend-following / managed futures strategies often show positive skewness — they tend to have many small losing trades (as trends fail to materialize) offset by occasional large gains when a strong trend is captured, similar to a long-option payoff.",
+        "Merger arbitrage, because deal spreads are symmetric and unaffected by market direction.",
+        "Fixed income arbitrage, because bond prices never experience large sudden moves.",
+        "Equity market neutral, because long and short positions always offset any skewness in the underlying stocks."
+      ],
+      "correct": 0,
+      "why": "Positive skew strategies behave like long option positions: frequent small premiums paid (losses) in exchange for the possibility of large payoffs (gains) during major market moves."
+    },
+    {
+      "id": "q281",
+      "prompt": "If a private equity fund's reported quarterly returns have an estimated autocorrelation of ρ=0.7, roughly how much would you expect its true (unsmoothed) volatility to differ from its reported volatility?",
+      "diff": "h",
+      "topic": "return_smoothing_effects",
+      "lo": "As shown in the slides' volatility-vs-autocorrelation relationship, unsmoothed volatility rises sharply as the autocorrelation coefficient increases, since the smoothing formula divides by (1-ρ), which shrinks rapidly as ρ approaches 1.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "Substantially higher — high autocorrelation (ρ=0.7) implies strong smoothing, so unsmoothing would meaningfully increase the estimated true volatility, potentially by 50% or more, though the exact factor depends on the full return series.",
+        "True volatility would be lower than reported, since unsmoothing always reduces estimated risk.",
+        "True volatility would be identical to reported volatility, since autocorrelation only affects expected returns.",
+        "The autocorrelation coefficient has no mathematical relationship to the degree of volatility understatement."
+      ],
+      "correct": 0,
+      "why": "As shown in the slides' volatility-vs-autocorrelation relationship, unsmoothed volatility rises sharply as the autocorrelation coefficient increases, since the smoothing formula divides by (1-ρ), which shrinks rapidly as ρ approaches 1."
+    },
+    {
+      "id": "q282",
+      "prompt": "Why do some institutional investors negotiate a 'first-loss' capital arrangement with hedge fund managers instead of a standard high-water mark?",
+      "diff": "h",
+      "topic": "performance_fee_alignment",
+      "lo": "A HWM only withholds future fees after a loss; a first-loss structure puts the manager's actual capital at risk first, creating a stronger, more immediate incentive alignment.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "In a first-loss arrangement, the manager's own capital (or a dedicated tranche) absorbs initial losses before LP capital is affected, giving the manager direct skin in the game beyond simply forgoing fees, which more strongly discourages excessive risk-taking than a HWM alone.",
+        "First-loss arrangements guarantee the LP a minimum positive return regardless of fund performance.",
+        "First-loss arrangements are primarily used to reduce the manager's management fee, not to align risk-taking incentives.",
+        "A first-loss arrangement is functionally identical to a standard high-water mark, just under a different name."
+      ],
+      "correct": 0,
+      "why": "A HWM only withholds future fees after a loss; a first-loss structure puts the manager's actual capital at risk first, creating a stronger, more immediate incentive alignment."
+    },
+    {
+      "id": "q283",
+      "prompt": "Why might an LP intentionally choose a hedge fund strategy with lower expected Sharpe ratio than another available option?",
+      "diff": "m",
+      "topic": "strategy_selection",
+      "lo": "Asset allocation decisions should be based on marginal contribution to portfolio risk and return, not on an individual strategy's standalone metrics in isolation.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "Because portfolio-level diversification benefits matter more than any single strategy's standalone Sharpe ratio — a strategy with a lower Sharpe but low/negative correlation to the LP's existing holdings can improve the overall portfolio's risk-adjusted return more than a higher-Sharpe strategy that is highly correlated with existing exposures.",
+        "LPs should always select the strategy with the single highest standalone Sharpe ratio, regardless of portfolio context.",
+        "Lower-Sharpe strategies are chosen only when an LP has no other investment options available.",
+        "Diversification benefits are irrelevant to strategy selection once expected return has been estimated."
+      ],
+      "correct": 0,
+      "why": "Asset allocation decisions should be based on marginal contribution to portfolio risk and return, not on an individual strategy's standalone metrics in isolation."
+    },
+    {
+      "id": "q284",
+      "prompt": "Besides low correlation, what other hedge fund characteristic contributes to portfolio diversification benefits?",
+      "diff": "m",
+      "topic": "portfolio_diversification_benefits",
+      "lo": "Diversification isn't just about correlation with existing holdings — it also comes from exposure to distinct, non-traditional sources of return that behave differently from standard market beta.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "Access to alternative risk premia and return drivers (e.g., merger arbitrage spreads, volatility risk premium, credit dislocations) that are not directly available through traditional long-only equity and bond exposures.",
+        "Hedge funds primarily add diversification through their use of daily liquidity, matching public market funds.",
+        "The main additional diversification benefit is access to guaranteed, government-backed return streams.",
+        "Diversification comes mainly from hedge funds' higher average fees relative to traditional asset managers."
+      ],
+      "correct": 0,
+      "why": "Diversification isn't just about correlation with existing holdings — it also comes from exposure to distinct, non-traditional sources of return that behave differently from standard market beta."
+    },
+    {
+      "id": "q285",
+      "prompt": "How might an LP stress-test a hedge fund allocation for the risk that correlations rise during a crisis?",
+      "diff": "h",
+      "topic": "correlation_with_traditional_assets",
+      "lo": "Full-period correlations can understate the risk of a diversification benefit disappearing exactly when it's needed most; crisis-period (conditional) correlation analysis is a more conservative and informative test.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "By examining the fund's performance and correlation specifically during past crisis periods (e.g., 2008, March 2020) rather than relying solely on full-sample (average) correlation statistics, which can mask crisis-specific correlation spikes.",
+        "By relying exclusively on the fund's full-sample average correlation, which already captures crisis behavior.",
+        "By assuming correlations remain constant in all market environments, since historical data shows no meaningful variation.",
+        "By stress-testing only the fund's fee structure, since correlation risk cannot be meaningfully estimated."
+      ],
+      "correct": 0,
+      "why": "Full-period correlations can understate the risk of a diversification benefit disappearing exactly when it's needed most; crisis-period (conditional) correlation analysis is a more conservative and informative test."
+    },
+    {
+      "id": "q286",
+      "prompt": "A 60/40 portfolio has equities at 60% weight with 15% volatility, and bonds at 40% weight with 5% volatility (ignore correlation for simplicity). Compare their approximate risk contributions.",
+      "diff": "h",
+      "topic": "risk_parity_concept",
+      "lo": "Simplified risk contribution ≈ weight × asset volatility (ignoring correlation); illustrates why capital-weighted portfolios are not risk-balanced",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "text"
+        }
+      ],
+      "solution": [
+        "Approx. risk contribution = weight × volatility. Equities: 0.6×15%=9.0%. Bonds: 0.4×5%=2.0%. Despite a 60/40 capital allocation, equities contribute far more than 60% of total risk.",
+        {
+          "m": "Simplified risk contribution ≈ weight × asset volatility (ignoring correlation); illustrates why capital-weighted portfolios are not risk-balanced"
+        }
+      ]
+    },
+    {
+      "id": "q287",
+      "prompt": "Why would an LP prefer to leverage a low-volatility, market-neutral hedge fund rather than simply increasing its equity allocation to raise portfolio return?",
+      "diff": "h",
+      "topic": "leverage_overlays",
+      "lo": "The goal of a leverage overlay is to access a strategy's superior risk-adjusted return (high Sharpe) at a larger scale, rather than accepting more concentrated, correlated equity risk to chase the same return target.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "Leveraging a low-beta, low-correlation strategy can raise expected return while keeping overall portfolio risk (and correlation to equities) low, whereas increasing the equity allocation raises both return and equity-correlated risk simultaneously, reducing diversification.",
+        "Leveraging a market-neutral strategy always increases correlation with equities, which is the intended diversification goal.",
+        "Increasing the equity allocation and leveraging a market-neutral strategy produce identical portfolio risk profiles.",
+        "Leverage overlays are primarily used to reduce a portfolio's expected return in exchange for lower fees."
+      ],
+      "correct": 0,
+      "why": "The goal of a leverage overlay is to access a strategy's superior risk-adjusted return (high Sharpe) at a larger scale, rather than accepting more concentrated, correlated equity risk to chase the same return target."
+    },
+    {
+      "id": "q288",
+      "prompt": "If a factor regression on a hedge fund's returns produces a low R² (e.g., 0.15), what does this suggest about the manager's return-generating process?",
+      "diff": "m",
+      "topic": "performance_attribution",
+      "lo": "High R² would suggest returns are mostly explained by factor exposures (limited alpha); low R² leaves more room for a genuine alpha interpretation, though it could also reflect noise or missing risk factors not included in the regression.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "A low R² suggests the fund's returns are largely unexplained by the chosen factors, which is more consistent with idiosyncratic, skill-based (or at least non-systematic) return generation rather than simply harvesting known risk premia.",
+        "A low R² indicates the regression was poorly specified and should be discarded entirely.",
+        "A low R² means the fund's returns are mostly explained by the chosen factors, indicating limited alpha.",
+        "R² has no relevance to distinguishing systematic returns from alpha; only the sign of alpha matters."
+      ],
+      "correct": 0,
+      "why": "High R² would suggest returns are mostly explained by factor exposures (limited alpha); low R² leaves more room for a genuine alpha interpretation, though it could also reflect noise or missing risk factors not included in the regression."
+    },
+    {
+      "id": "q289",
+      "prompt": "What is the role of the General Partner (GP) in a hedge fund's legal structure?",
+      "diff": "e",
+      "topic": "definition_characteristics",
+      "lo": "The GP/LP structure separates control (GP) from passive capital (LP); the GP's compensation (management + performance fees) is the primary economic engine of the hedge fund business.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "The GP is the legal controller of the fund, makes investment decisions, receives the performance fee (carried interest), and bears fiduciary duty to the limited partners.",
+        "The GP is a passive capital provider with no involvement in investment decisions or fund operations.",
+        "The GP's only function is to audit the fund's financial statements at year-end.",
+        "The GP holds no fiduciary duty to investors, unlike the limited partners."
+      ],
+      "correct": 0,
+      "why": "The GP/LP structure separates control (GP) from passive capital (LP); the GP's compensation (management + performance fees) is the primary economic engine of the hedge fund business."
+    },
+    {
+      "id": "q290",
+      "prompt": "What is a 'side pocket' in a hedge fund, and when is it typically used?",
+      "diff": "m",
+      "topic": "operational_features",
+      "lo": "Side pockets prevent illiquid holdings from forcing fire-sale liquidations to meet redemption requests, and ensure that only investors present when the illiquid asset was purchased participate in its eventual gain or loss.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "A side pocket segregates illiquid or hard-to-value assets into a separate account, restricting redemptions on that portion until the asset is sold or becomes liquid, while the rest of the fund continues normal redemption terms.",
+        "A side pocket is a separate share class offering discounted fees to early investors.",
+        "A side pocket refers to the portion of AUM reserved for the manager's own personal investment.",
+        "A side pocket is used to segregate the most liquid assets in the fund for faster redemptions."
+      ],
+      "correct": 0,
+      "why": "Side pockets prevent illiquid holdings from forcing fire-sale liquidations to meet redemption requests, and ensure that only investors present when the illiquid asset was purchased participate in its eventual gain or loss."
+    },
+    {
+      "id": "q291",
+      "prompt": "A fund reports $850M in assets and $62M in liabilities, with 9,400,000 shares outstanding. Compute NAV per share.",
+      "diff": "e",
+      "topic": "nav_and_nav_per_share",
+      "lo": "NAV per Share = (Assets - Liabilities) / Shares Outstanding",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer ($)",
+          "unit": "usd",
+          "answer": 83.83,
+          "tol": 0.8383
+        }
+      ],
+      "solution": [
+        "NAV = $850M-$62M=$788M. NAV/share = $788M/9,400,000=$83.83",
+        {
+          "m": "NAV per Share = (Assets - Liabilities) / Shares Outstanding"
+        }
+      ]
+    },
+    {
+      "id": "q292",
+      "prompt": "A fund with $180M AUM charges 1.5% management and 20% performance fee (independent basis). It returns 30%. Compute both fees.",
+      "diff": "m",
+      "topic": "2_and_20_fee_structure",
+      "lo": "Independent fees: Mgmt = AUM×mgmt%; Perf = AUM×return×perf%",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "text"
+        }
+      ],
+      "solution": [
+        "Mgmt = $180M×1.5%=$2.70M. Perf = $180M×30%×20%=$10.8M",
+        {
+          "m": "Independent fees: Mgmt = AUM×mgmt%; Perf = AUM×return×perf%"
+        }
+      ]
+    },
+    {
+      "id": "q293",
+      "prompt": "Fund returns 19% gross, 2% mgmt fee, 25% perf fee net-of-mgmt. Net investor return?",
+      "diff": "m",
+      "topic": "fee_computations",
+      "lo": "Net Return = (Gross - Mgmt%) × (1 - Perf%)",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.1275,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "Net of mgmt = 19%-2%=17%. Net return = 17%×(1-25%)=12.75%",
+        {
+          "m": "Net Return = (Gross - Mgmt%) × (1 - Perf%)"
+        }
+      ]
+    },
+    {
+      "id": "q294",
+      "prompt": "What is a 'catch-up' provision often paired with a hurdle rate?",
+      "diff": "h",
+      "topic": "hurdle_rates",
+      "lo": "Catch-up provisions preserve most of the manager's economics even with a hurdle in place, softening what would otherwise be a pure investor-friendly hurdle structure.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "After the fund clears the hurdle, a catch-up provision lets the manager receive an outsized share (often 100%) of returns up to a point, so that the manager's total performance fee 'catches up' to what it would have been under a standard (no-hurdle) fee structure — after which normal fee splits resume.",
+        "A catch-up provision requires the manager to repay any performance fees earned in years the fund underperforms its hurdle.",
+        "A catch-up provision raises the hurdle rate each year the fund outperforms, making it progressively harder to earn fees.",
+        "A catch-up provision eliminates the hurdle rate entirely once the fund exceeds its high-water mark."
+      ],
+      "correct": 0,
+      "why": "Catch-up provisions preserve most of the manager's economics even with a hurdle in place, softening what would otherwise be a pure investor-friendly hurdle structure."
+    },
+    {
+      "id": "q295",
+      "prompt": "Fund HWM = $120. It falls 35%, then rises 40% from the new low. Is it above its HWM?",
+      "diff": "h",
+      "topic": "high_water_marks",
+      "lo": "A percentage gain from a lower base never fully offsets an equal or larger prior percentage loss",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "text"
+        }
+      ],
+      "solution": [
+        "Low = $120×(1-35%)=$78.00. Recovery = $78.00×(1+40%)=$109.20, still under $120.",
+        {
+          "m": "A percentage gain from a lower base never fully offsets an equal or larger prior percentage loss"
+        }
+      ]
+    },
+    {
+      "id": "q296",
+      "prompt": "Short 500 shares at $28. What is the Reg T initial margin requirement?",
+      "diff": "m",
+      "topic": "margin_requirements",
+      "lo": "Initial margin = 150% of short sale proceeds",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "text"
+        }
+      ],
+      "solution": [
+        "Proceeds=500×$28=$14,000. Initial margin=150%×$14,000=$21,000",
+        {
+          "m": "Initial margin = 150% of short sale proceeds"
+        }
+      ]
+    },
+    {
+      "id": "q297",
+      "prompt": "Fund: $220M long, $180M short, $100M NAV. Compute gross and net leverage.",
+      "diff": "m",
+      "topic": "leverage_calculations",
+      "lo": "Gross=(Long+|Short|)/NAV; Net=(Long-Short)/NAV",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "text"
+        }
+      ],
+      "solution": [
+        "Gross=(220+180)/100=4.0x. Net=(220-180)/100=0.4x",
+        {
+          "m": "Gross=(Long+|Short|)/NAV; Net=(Long-Short)/NAV"
+        }
+      ]
+    },
+    {
+      "id": "q298",
+      "prompt": "Cash deal at $60/share, target trading at $58.2 post-announcement. Return if deal succeeds?",
+      "diff": "m",
+      "topic": "merger_arbitrage",
+      "lo": "Merger arb return = (Deal Price/Post-Announcement Price) - 1",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer (%)",
+          "unit": "pct",
+          "answer": 0.030899999999999997,
+          "tol": 0.001
+        }
+      ],
+      "solution": [
+        "Return = $60/$58.2-1=3.09%",
+        {
+          "m": "Merger arb return = (Deal Price/Post-Announcement Price) - 1"
+        }
+      ]
+    },
+    {
+      "id": "q299",
+      "prompt": "A convertible bond has conversion ratio 25. The stock trades at $40. What is the conversion value?",
+      "diff": "e",
+      "topic": "convertible_arbitrage",
+      "lo": "Conversion Value = Conversion Ratio × Current Stock Price",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "quant",
+      "parts": [
+        {
+          "label": "Answer",
+          "unit": "text"
+        }
+      ],
+      "solution": [
+        "CV = 25×$40=$1,000",
+        {
+          "m": "Conversion Value = Conversion Ratio × Current Stock Price"
+        }
+      ]
+    },
+    {
+      "id": "q300",
+      "prompt": "Why is it important to use out-of-sample factor betas (not just in-sample fitted betas) when attributing a hedge fund's future expected return to systematic factors?",
+      "diff": "h",
+      "topic": "performance_attribution",
+      "lo": "Attribution done purely in-sample risks confusing statistical fit with genuine predictive skill; robust attribution should be validated on data the model wasn't fit to.",
+      "src": "Course slides & Homework 2 solutions",
+      "kind": "mc",
+      "choices": [
+        "In-sample betas are fit to historical data and can overstate explanatory power (overfitting); out-of-sample or rolling-window betas provide a more honest, forward-looking estimate of how much of the fund's return is likely to be systematic versus true alpha going forward.",
+        "In-sample betas are always more accurate than out-of-sample betas since they use more relevant historical data.",
+        "Out-of-sample betas are only relevant for mutual funds, not for hedge fund performance attribution.",
+        "Using out-of-sample betas eliminates the need to consider R² when interpreting alpha."
+      ],
+      "correct": 0,
+      "why": "Attribution done purely in-sample risks confusing statistical fit with genuine predictive skill; robust attribution should be validated on data the model wasn't fit to."
     }
   ],
   "formulas": []
