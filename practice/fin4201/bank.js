@@ -815,7 +815,7 @@ window.FIN4201_BANK = {
     },
     {
       "id": "q23",
-      "prompt": "Same PE index: Q1 = 3.3%, Q2 = 5.2%, Q3 = -8.1%. If ρ = 0, what is the unsmoothed Q2 return?",
+      "prompt": "A private equity index shows quarterly returns: Q1 = 3.3%, Q2 = 5.2%, Q3 = -8.1%. If the estimated autocorrelation is ρ = 0, what is the true unsmoothed Q2 return?",
       "diff": "h",
       "topic": "unsmoothing_returns",
       "lo": "When autocorrelation is zero, reported = true return",
@@ -838,7 +838,7 @@ window.FIN4201_BANK = {
     },
     {
       "id": "q24",
-      "prompt": "Same PE index: Q1 = 3.3%, Q2 = 5.2%, Q3 = -8.1%. If ρ = 0.9, what is the unsmoothed Q2 return?",
+      "prompt": "A private equity index shows quarterly returns: Q1 = 3.3%, Q2 = 5.2%, Q3 = -8.1%. If the estimated autocorrelation is ρ = 0.9, what is the true unsmoothed Q2 return?",
       "diff": "h",
       "topic": "unsmoothing_returns",
       "lo": "High smoothing (ρ = 0.9) reveals much larger true volatility",
@@ -1370,7 +1370,7 @@ window.FIN4201_BANK = {
     },
     {
       "id": "q54",
-      "prompt": "Same fund (Main Street, $450M, 2/30). If performance fee is computed on return net of management fees, what is the performance fee?",
+      "prompt": "Main Street Capital manages $450M and charges a 2% management fee and 30% performance fee. In its first year it returned 40%. If the performance fee is computed on the return net of management fees, what is the performance fee?",
       "diff": "m",
       "topic": "fee_computations",
       "lo": "Net-of-management-fee: subtract management fee from gross return before applying performance fee percentage",
@@ -1528,7 +1528,7 @@ window.FIN4201_BANK = {
     },
     {
       "id": "q62",
-      "prompt": "From q7_003: Stock rises to $25. What is the margin ratio and does a margin call occur?",
+      "prompt": "An investor shorts 100 shares at $20, requiring an account balance of $3,000 under 150% initial margin (100% proceeds + 50% additional equity). The stock now rises to $25. What is the margin ratio, and does a margin call occur?",
       "diff": "h",
       "topic": "margin_requirements",
       "lo": "Margin ratio = Account Equity / Short Position Value",
@@ -1808,7 +1808,7 @@ window.FIN4201_BANK = {
     },
     {
       "id": "q76",
-      "prompt": "From q8_008: Long convertible at $1,120, short 40 shares at $30. Stock rises to $35. What is the profit/loss?",
+      "prompt": "An investor holds a convertible bond long at $1,120 (112% of $1,000 par, conversion ratio 40) and shorts 40 shares at $30. The stock then rises to $35. What is the approximate profit/loss?",
       "diff": "h",
       "topic": "convertible_arbitrage",
       "lo": "Bond upside offsets short stock loss when stock rises; bond downside protection if stock falls",
@@ -2799,7 +2799,7 @@ window.FIN4201_BANK = {
     },
     {
       "id": "q127",
-      "prompt": "Same PE index with ρ=0.9. What is true unsmoothed Q2?",
+      "prompt": "A private equity index shows quarterly returns: Q1 = 3.3%, Q2 = 5.2%, Q3 = -8.1%. With an estimated autocorrelation of ρ = 0.9, what is the true unsmoothed Q2 return?",
       "diff": "h",
       "topic": "unsmoothing_returns",
       "lo": "High smoothing reveals extreme true volatility",
@@ -4819,7 +4819,7 @@ window.FIN4201_BANK = {
     },
     {
       "id": "q229",
-      "prompt": "Same index (Q1=2.8%, Q2=4.1%) but with a stronger autocorrelation ρ=0.8. What is the unsmoothed Q2 return now?",
+      "prompt": "A different private equity index shows quarterly returns Q1 = 2.8%, Q2 = 4.1%. With a stronger autocorrelation of ρ = 0.8, what is the true unsmoothed Q2 return?",
       "diff": "h",
       "topic": "unsmoothing_returns",
       "lo": "Higher ρ implies stronger smoothing correction and a larger swing in the unsmoothed estimate",
@@ -5003,7 +5003,7 @@ window.FIN4201_BANK = {
     },
     {
       "id": "q237",
-      "prompt": "Using the CAPM prediction above (12.30%), if the fund's actual return was 13%, what is its alpha?",
+      "prompt": "A fund's CAPM-predicted return is 12.30%. If the fund's actual return was 13%, what is its alpha?",
       "diff": "m",
       "topic": "capm_and_alpha",
       "lo": "Alpha = Actual Return - CAPM Expected Return",
@@ -5112,7 +5112,7 @@ window.FIN4201_BANK = {
     },
     {
       "id": "q242",
-      "prompt": "Same fund (monthly σ=7%). What is the parametric 99% monthly VaR?",
+      "prompt": "A fund's monthly return volatility is 7%. What is the parametric 99% monthly VaR?",
       "diff": "h",
       "topic": "value_at_risk",
       "lo": "Higher confidence level uses a larger z-score (2.33 for 99% vs. 1.645 for 95%), producing a larger VaR",
@@ -5344,7 +5344,7 @@ window.FIN4201_BANK = {
     },
     {
       "id": "q254",
-      "prompt": "Same fund as above, but the performance fee is computed net of the management fee. What is the performance fee now?",
+      "prompt": "A fund with $300M AUM charges a 2% management fee and 20% performance fee, and returns 25% for the year. If the performance fee is instead computed on the return net of the management fee, what is the performance fee?",
       "diff": "m",
       "topic": "2_and_20_fee_structure",
       "lo": "Net-of-mgmt: Perf fee = (Gross profit - Mgmt fee) × Perf%",
@@ -5523,7 +5523,7 @@ window.FIN4201_BANK = {
     },
     {
       "id": "q263",
-      "prompt": "From the position above (account balance $20,250), the stock rises to $54. What is the margin ratio, and is there a margin call?",
+      "prompt": "An investor shorts 300 shares at $45, requiring an account balance of $20,250 under 150% initial margin. The stock now rises to $54. What is the margin ratio, and is there a margin call?",
       "diff": "h",
       "topic": "margin_requirements",
       "lo": "Margin ratio = Account Equity / Current Short Position Value; compare to 30% maintenance minimum",
@@ -5683,7 +5683,7 @@ window.FIN4201_BANK = {
     },
     {
       "id": "q271",
-      "prompt": "Same deal: pre-announcement price was $34. If the deal fails and the stock reverts to the pre-announcement price, what is the arb's loss?",
+      "prompt": "An acquirer offers $45/share cash for a target; the target trades at $43.8 post-announcement, up from a pre-announcement price of $34. If the deal fails and the stock reverts to the pre-announcement price, what is the arbitrageur's loss?",
       "diff": "h",
       "topic": "merger_arbitrage",
       "lo": "Deal-failure return = (Pre-Announcement Price / Post-Announcement Price) - 1",
@@ -5744,7 +5744,7 @@ window.FIN4201_BANK = {
     },
     {
       "id": "q274",
-      "prompt": "Using the bond above (bought at $1,080, CR=35), you short 35 shares at $32. The stock rises to $38. What is the approximate net P&L?",
+      "prompt": "An investor holds a convertible bond long at $1,080 (conversion ratio 35) and shorts 35 shares at $32. The stock then rises to $38. What is the approximate net P&L?",
       "diff": "h",
       "topic": "convertible_arbitrage",
       "lo": "Bond upside (toward new conversion value) largely offsets the short stock loss when the stock rises",
