@@ -16,7 +16,7 @@ author_profile: true
     <summary>Abstract &amp; Links</summary>
     <p><strong>Abstract.</strong> We study the asset allocation and investment performance of U.S. private foundations that support the charitable sector. Large foundations generated positive risk-adjusted returns before 2008, driven by early access to private equity and venture capital funds, but have underperformed since. The median foundation underperforms by more than 100 basis points. Foundations with concentrated stock holdings achieve higher returns but assume more risk. Due to the constraints imposed by the 5% minimum spending rule and accommodating monetary policy, foundations increase risk-taking and reach for yield. Over time, a conservative asset allocation decreases real wealth, reducing charitable giving.</p>
     <p class="paper-links">
-            <a href="[https://www.sciencedirect.com/science/article/pii/S0929119925000616?via%3Dihub=">Journal</a>
+            <a href="https://www.sciencedirect.com/science/article/pii/S0929119925000616?via%3Dihub">Journal</a>
       <a href="#">Online Appendix</a>
     </p>
   </details>
